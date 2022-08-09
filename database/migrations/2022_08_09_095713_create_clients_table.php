@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('google_id');
-            $table->string('image_path');
-            $table->string('phone');
+            $table->string('image_path')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
