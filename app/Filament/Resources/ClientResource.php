@@ -66,17 +66,28 @@ class ClientResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
                     ->label('Image'),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\BooleanColumn::make('is_vendor'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('phone'),
-                Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('email')->searchable(),
+                Tables\Columns\TextColumn::make('phone')->searchable(),
+                Tables\Columns\TextColumn::make('created_at')->sortable()
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('type')
+                    ->options([
+                        'vendor' => 'Vendor',
+                        'client' => 'Client',
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        if ($data['value'] === 'vendor') {
+                            $query->whereHas('vendor');
+                        } elseif ($data['value'] === 'client') {
+                            $query->whereDoesntHave('vendor');
+                        }
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
