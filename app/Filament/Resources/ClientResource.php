@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClientResource\Pages;
 use App\Filament\Resources\ClientResource\RelationManagers;
+use App\Models\Category;
 use App\Models\Client;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -30,9 +31,9 @@ class ClientResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                // Forms\Components\TextInput::make('google_id')
-                //     ->required()
-                //     ->maxLength(255),
+                Forms\Components\TextInput::make('google_id')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\FileUpload::make('image_path')
                     ->image()
                     ->disk('public')
@@ -41,6 +42,21 @@ class ClientResource extends Resource
                 Forms\Components\TextInput::make('phone')
                     ->tel()
                     ->maxLength(255),
+                // Forms\Components\Fieldset::make('Vendor')
+                //     ->relationship('vendor')
+                //     ->schema([
+                //         Forms\Components\TextInput::make('name')
+                //             ->required()
+                //             ->maxLength(255),
+                //         Forms\Components\TextInput::make('description')
+                //             ->required()
+                //             ->maxLength(255),
+                //         Forms\Components\Select::make('category_id')
+                //             ->required()
+                //             ->options(Category::all()->pluck('name', 'id'))
+                //             ->searchable()
+                //             ->label('Category'),
+                //     ]),
             ]);
     }
 
@@ -49,8 +65,9 @@ class ClientResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                ->label('Image'),
+                    ->label('Image'),
                 Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\BooleanColumn::make('is_vendor'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('phone'),
                 Tables\Columns\TextColumn::make('created_at')
@@ -72,7 +89,7 @@ class ClientResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\VendorRelationManager::class,
         ];
     }
 

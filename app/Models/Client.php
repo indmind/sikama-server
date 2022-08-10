@@ -42,10 +42,14 @@ class Client extends Model
     }
 
     public function vendor() {
-        return $this->hasOne(Vendor::class);
+        return $this->hasOne(Vendor::class, 'seller_id');
     }
 
     public function orders() {
         return $this->hasMany(Order::class);
+    }
+
+    public function getIsVendorAttribute() {
+        return $this->vendor !== null;
     }
 }

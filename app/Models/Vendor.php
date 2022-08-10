@@ -10,7 +10,7 @@ class Vendor extends Model
     use HasFactory;
 
     protected $fillable = [
-        'seller_id', 'category_id', 'name', 'description', 'is_verified', 'is_active',
+        'seller_id', 'category_id', 'name', 'description', 'is_verified', 'is_active', 'verified_by',
     ];
 
     public function seller() {
@@ -35,5 +35,17 @@ class Vendor extends Model
 
     public function orders() {
         return $this->hasMany(Order::class);
+    }
+
+    public function verify() {
+        $this->is_verified = true;
+        $this->verified_by = auth()->id();
+        $this->save();
+    }
+
+    public function unverify() {
+        $this->is_verified = false;
+        $this->verified_by = null;
+        $this->save();
     }
 }
