@@ -43,7 +43,8 @@ class VendorRelationManager extends RelationManager
                             ->image()
                             ->disk('public')
                             ->directory('images/vendors')
-                            ->label('Image'),
+                            ->label('Image')
+                            ->required(),
                     ]),
 
                 // Use action to verify
