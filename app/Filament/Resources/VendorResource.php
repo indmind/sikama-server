@@ -1,25 +1,29 @@
 <?php
 
-namespace App\Filament\Resources\ClientResource\RelationManagers;
+namespace App\Filament\Resources;
 
+use App\Filament\Resources\VendorResource\Pages;
+use App\Filament\Resources\VendorResource\RelationManagers;
 use App\Models\Category;
-use App\Models\Client;
 use App\Models\Vendor;
-use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
-use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class VendorRelationManager extends RelationManager
+class VendorResource extends Resource
 {
-    protected static string $relationship = 'vendor';
+    protected static ?string $model = Vendor::class;
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $navigationIcon = 'heroicon-o-library';
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {
@@ -39,6 +43,7 @@ class VendorRelationManager extends RelationManager
                 Forms\Components\Repeater::make('vendor_images')
                     ->relationship('images')
                     ->collapsible()
+                    ->grid()
                     ->schema([
                         Forms\Components\FileUpload::make('image_path')
                             ->image()
@@ -47,15 +52,6 @@ class VendorRelationManager extends RelationManager
                             ->label('Image')
                             ->required(),
                     ]),
-
-                // Use action to verify
-                // Forms\Components\Hidden::make('verified_by'),
-                // Forms\Components\Toggle::make('is_verified')
-                //     ->label('Verified')
-                //     ->reactive()
-                //     ->afterStateUpdated(
-                //         fn (callable $set, $state) => $set('verified_by', $state ? auth()->user()->id : null)
-                //     ),
             ]);
     }
 
@@ -63,23 +59,32 @@ class VendorRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\BooleanColumn::make('is_verified'),
-                Tables\Columns\TextColumn::make('verifiedBy.name'),
-                Tables\Columns\TextColumn::make('category.name')
-                    ->label('Category'),
-            ])
+                Tables\Columns\BooleanColumn::make('is_active'),
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('description')->searchable(),
+                Tables\Columns\TextColumn::make('seller.name')->searchable(),
+                Tables\Columns\TextColumn::make('category.name')->searchable(),
+                Tables\Columns\TextColumn::make('verifiedBy.name')->searchable(),
 
-            ->filters([
-                //
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime(),
             ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make()
+            ->filters([
+                Tables\Filters\SelectFilter::make('isActive')->options([
+                    1 => 'Yes',
+                    0 => 'No',
+                ])->column('is_active'),
+                Tables\Filters\SelectFilter::make('category')->relationship('category', 'name'),
+                Tables\Filters\SelectFilter::make('isVerified')->options([
+                    1 => 'Yes',
+                    0 => 'No',
+                ])->column('is_verified'),
+                Tables\Filters\SelectFilter::make('verifiedBy')->relationship('verifiedBy', 'name'),
             ])
             ->actions([
-                // Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\Action::make('verify')
                     ->action(fn (Vendor $record) => $record->verify())
@@ -97,5 +102,21 @@ class VendorRelationManager extends RelationManager
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListVendors::route('/'),
+            'create' => Pages\CreateVendor::route('/create'),
+            'edit' => Pages\EditVendor::route('/{record}/edit'),
+        ];
     }
 }

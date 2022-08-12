@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vendor_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('image_path');
+            // for orderinng
+            $table->integer('order_column')->default(0);
             $table->timestamps();
         });
     }
