@@ -1,0 +1,71 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/google-sign-in
+    metadata:
+      title: 'Login user and create token using Google access token.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      access_token:
+        name: access_token
+        description: 'Google access token.'
+        required: true
+        example: aut
+        type: string
+        custom: []
+      fcm_token:
+        name: fcm_token
+        description: 'optional Firebase Cloud Messaging token.'
+        required: false
+        example: quam
+        type: string
+        custom: []
+      device_name:
+        name: device_name
+        description: 'Device name the user is using.'
+        required: true
+        example: asperiores
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":13,"name":"Irnanto Gada Firgantoro","email":"manah.wijayanti@example.net","google_id":"0f4da853-56f7-3e9a-9691-21cb5a748aae","image_path":null,"phone":"0662 5313 607","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
+        headers: []
+        description: '0'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
