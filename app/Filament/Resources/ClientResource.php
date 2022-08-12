@@ -68,6 +68,9 @@ class ClientResource extends Resource
                     ->label('Image'),
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\BooleanColumn::make('is_vendor'),
+                Tables\Columns\BooleanColumn::make('vendor.is_verified')
+                    ->label('Is Verified Vendor')
+                    ->default(false),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('phone')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable()
@@ -88,6 +91,23 @@ class ClientResource extends Resource
                             $query->whereDoesntHave('vendor');
                         }
                     }),
+                    Tables\Filters\SelectFilter::make('verified_vendor')
+                        ->options([
+                            'true' => 'Verified',
+                            'false' => 'Not Verified',
+                        ])
+                        ->query(function (Builder $query, array $data) {
+                            if ($data['value'] === 'true') {
+                                $query->whereHas('vendor', function (Builder $query) {
+                                    $query->where('is_verified', true);
+                                });
+                            } elseif ($data['value'] === 'false') {
+                                $query->whereHas('vendor', function (Builder $query) {
+                                    $query->where('is_verified', false);
+                                });
+                            }
+                        }),
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
