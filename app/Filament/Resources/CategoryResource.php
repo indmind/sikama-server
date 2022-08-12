@@ -43,9 +43,9 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('icon'),
                 Tables\Columns\TextColumn::make('color'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->dateTime()->sortable(),
             ])
             ->filters([
                 //

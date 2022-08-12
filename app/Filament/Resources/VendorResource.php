@@ -68,9 +68,9 @@ class VendorResource extends Resource
                 Tables\Columns\TextColumn::make('verifiedBy.name')->searchable(),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->dateTime()->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('isActive')->options([

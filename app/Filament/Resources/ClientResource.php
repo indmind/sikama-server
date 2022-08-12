@@ -75,7 +75,7 @@ class ClientResource extends Resource
                 Tables\Columns\TextColumn::make('phone')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable()
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')->sortable()
                     ->dateTime(),
             ])
             ->filters([
