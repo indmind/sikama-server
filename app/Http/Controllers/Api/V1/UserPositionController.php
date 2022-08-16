@@ -10,20 +10,20 @@ use Illuminate\Http\Request;
 
 /**
  * @group Position Provider
- * 
+ *
  * @authenticated
- * 
+ *
  * APIs for getting other users position.
  */
 class UserPositionController extends Controller
 {
     /**
      * Get user position
-     * 
+     *
      * Get user position based on user id
-     * 
+     *
      * @urlParam user_id required The ID of the user Example: 1
-     * 
+     *
      * @apiResource App\Http\Resources\V1\UserPositionResource
      * @apiResourceModel App\Models\Position
      */

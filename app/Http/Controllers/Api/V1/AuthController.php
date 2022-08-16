@@ -13,20 +13,20 @@ use Laravel\Socialite\Facades\Socialite;
 
 /**
  * @group Authentication
- * 
+ *
  * APIs for managing authentication
  */
 class AuthController extends Controller
 {
     /**
      * Google SignIn
-     * 
+     *
      * Login user and create token using Google access token.
-     * 
+     *
      * @bodyParam access_token string required Google access token. Use `debug_token` for debugging (only works in debug mode). Example: debug_token
      * @bodyParam fcm_token string optional Firebase Cloud Messaging token. No-example
      * @bodyParam device_name string required Device name the user is using. Example: Scribe
-     * 
+     *
      * @apiResource App\Http\Resources\V1\Auth\SignInResource
      * @apiResourceModel App\Models\Client
      * @apiResourceAdditional token=bearer_token_for_authentication
@@ -69,17 +69,17 @@ class AuthController extends Controller
         // for testing without access_token
         // $client = Client::first();
 
-        if (!$client) {
+        if (! $client) {
             $client = Client::create([
                 'google_id' => $googleUser->id,
                 'name' => $googleUser->name,
-                'email' => $googleUser->email
+                'email' => $googleUser->email,
             ]);
 
             $avatar = file_get_contents($googleUser->avatar);
 
             // store avatar in images/clients/{$client->id}.png
-            $client->image_path = Storage::disk('public')->put('images/clients/' . $client->id . '.png', $avatar);
+            $client->image_path = Storage::disk('public')->put('images/clients/'.$client->id.'.png', $avatar);
 
             $client->save();
         }
@@ -94,11 +94,11 @@ class AuthController extends Controller
 
     /**
      * Current User
-     * 
+     *
      * Get the authenticated user.
-     * 
+     *
      * @authenticated
-     * 
+     *
      * @apiResource App\Http\Resources\V1\UserResource
      * @apiResourceModel App\Models\Client
      */
@@ -109,11 +109,11 @@ class AuthController extends Controller
 
     /**
      * Logout
-     * 
+     *
      * Revoke current user token, other token can still be used.
-     * 
+     *
      * @authenticated
-     * 
+     *
      * @response {
      *  "message": "Logout Success"
      * }

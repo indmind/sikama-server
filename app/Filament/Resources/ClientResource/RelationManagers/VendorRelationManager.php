@@ -3,17 +3,12 @@
 namespace App\Filament\Resources\ClientResource\RelationManagers;
 
 use App\Models\Category;
-use App\Models\Client;
 use App\Models\Vendor;
-use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class VendorRelationManager extends RelationManager
 {
@@ -75,7 +70,7 @@ class VendorRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make()
+                Tables\Actions\CreateAction::make(),
             ])
             ->actions([
                 // Tables\Actions\DeleteAction::make(),
@@ -92,7 +87,7 @@ class VendorRelationManager extends RelationManager
                     ->requiresConfirmation()
                     ->color('danger')
                     ->icon('heroicon-o-x')
-                    ->hidden(fn (Vendor $record) => !$record->is_verified),
+                    ->hidden(fn (Vendor $record) => ! $record->is_verified),
             ])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),

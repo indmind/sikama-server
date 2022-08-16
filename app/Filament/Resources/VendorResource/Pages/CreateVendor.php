@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\VendorResource\Pages;
 
 use App\Filament\Resources\VendorResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateVendor extends CreateRecord

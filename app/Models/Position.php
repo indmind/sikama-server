@@ -13,7 +13,8 @@ class Position extends Model
         'client_id', 'latitude', 'longitude',
     ];
 
-    public function client() {
+    public function client()
+    {
         return $this->belongsTo(Client::class);
     }
 }

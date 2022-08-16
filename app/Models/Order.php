@@ -13,11 +13,13 @@ class Order extends Model
         'customer_id', 'vendor_id', 'schedule_time', 'status',
     ];
 
-    public function customer() {
+    public function customer()
+    {
         return $this->belongsTo(Client::class, 'customer_id');
     }
 
-    public function vendor() {
+    public function vendor()
+    {
         return $this->belongsTo(Vendor::class);
     }
 }

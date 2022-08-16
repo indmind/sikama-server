@@ -38,23 +38,28 @@ class Client extends Model
         });
     }
 
-    public function position() {
+    public function position()
+    {
         return $this->hasOne(Position::class);
     }
 
-    public function vendor() {
+    public function vendor()
+    {
         return $this->hasOne(Vendor::class, 'seller_id');
     }
 
-    public function orders() {
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 
-    public function getIsVendorAttribute() {
+    public function getIsVendorAttribute()
+    {
         return $this->vendor !== null;
     }
 
-    public function getImageUrlAttribute() {
+    public function getImageUrlAttribute()
+    {
         $imagePath = $this->image_path;
 
         if ($imagePath) {

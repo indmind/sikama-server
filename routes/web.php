@@ -19,4 +19,3 @@ Route::get('/', function () {
 
 // login route
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-

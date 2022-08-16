@@ -12,7 +12,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ClientResource extends Resource
 {
@@ -91,23 +90,23 @@ class ClientResource extends Resource
                             $query->whereDoesntHave('vendor');
                         }
                     }),
-                    Tables\Filters\SelectFilter::make('verified_vendor')
-                        ->options([
-                            'true' => 'Verified',
-                            'false' => 'Not Verified',
-                        ])
-                        ->query(function (Builder $query, array $data) {
-                            if ($data['value'] === 'true') {
-                                $query->whereHas('vendor', function (Builder $query) {
-                                    $query->where('is_verified', true);
-                                });
-                            } elseif ($data['value'] === 'false') {
-                                $query->whereHas('vendor', function (Builder $query) {
-                                    $query->where('is_verified', false);
-                                });
-                            }
-                        }),
-                
+                Tables\Filters\SelectFilter::make('verified_vendor')
+                    ->options([
+                        'true' => 'Verified',
+                        'false' => 'Not Verified',
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        if ($data['value'] === 'true') {
+                            $query->whereHas('vendor', function (Builder $query) {
+                                $query->where('is_verified', true);
+                            });
+                        } elseif ($data['value'] === 'false') {
+                            $query->whereHas('vendor', function (Builder $query) {
+                                $query->where('is_verified', false);
+                            });
+                        }
+                    }),
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

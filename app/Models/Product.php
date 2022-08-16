@@ -13,7 +13,8 @@ class Product extends Model
         'vendor_id', 'name', 'price', 'is_available', 'image_path',
     ];
 
-    public function vendor() {
+    public function vendor()
+    {
         return $this->belongsTo(Vendor::class);
     }
 }
