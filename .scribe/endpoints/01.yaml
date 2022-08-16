@@ -1,0 +1,32 @@
+name: 'Position Provider'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/position/{user_id}'
+    metadata:
+      title: 'Get user position'
+      description: 'Get user position based on user id'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user'
+        required: true
+        example: '1'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"latitude":42.130255,"longitude":97.032111,"datetime":null}}'
+        headers: []
+        description: '0'
+    responseFields: []

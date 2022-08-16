@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 44
-                    name: 'Yusuf Widodo'
-                    email: padmasari.samiah@example.org
+                    id: 78
+                    name: 'Ella Ratna Safitri S.E.I'
+                    email: nilam.melani@example.org
                     image_url: null
-                    phone: '(+62) 565 8263 779'
+                    phone: '0898 674 446'
                     is_vendor: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 44
-                      name: 'Yusuf Widodo'
-                      email: padmasari.samiah@example.org
+                      id: 78
+                      name: 'Ella Ratna Safitri S.E.I'
+                      email: nilam.melani@example.org
                       image_url: null
-                      phone: '(+62) 565 8263 779'
+                      phone: '0898 674 446'
                       is_vendor: false
                   message:
                     type: string
@@ -60,7 +60,7 @@ paths:
                     type: string
                     example: bearer_token_for_authentication
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -112,24 +112,24 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 45
-                    name: 'Agus Halim S.Gz'
-                    email: nugroho.hesti@example.net
+                    id: 79
+                    name: 'Kiandra Unjani Melani S.Gz'
+                    email: dongoran.diah@example.com
                     image_url: null
-                    phone: '0979 8998 811'
+                    phone: '025 3979 6310'
                     is_vendor: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 45
-                      name: 'Agus Halim S.Gz'
-                      email: nugroho.hesti@example.net
+                      id: 79
+                      name: 'Kiandra Unjani Melani S.Gz'
+                      email: dongoran.diah@example.com
                       image_url: null
-                      phone: '0979 8998 811'
+                      phone: '025 3979 6310'
                       is_vendor: false
       tags:
-        - Endpoints
+        - Authentication
   /api/v1/auth/logout:
     post:
       summary: Logout
@@ -163,8 +163,112 @@ paths:
                     type: string
                     example: 'Logout Success'
       tags:
-        - Endpoints
+        - Authentication
+  '/api/v1/position/{user_id}':
+    post:
+      summary: 'Get user position'
+      description: 'Get user position based on user id'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    latitude: 42.130255
+                    longitude: 97.032111
+                    datetime: null
+                properties:
+                  data:
+                    type: object
+                    example:
+                      latitude: 42.130255
+                      longitude: 97.032111
+                      datetime: null
+      tags:
+        - 'Position Provider'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user'
+        example: '1'
+        required: true
+        schema:
+          type: string
+  /api/v1/user/position/update:
+    post:
+      summary: 'Update user position'
+      description: 'This will update the current user position, set to null to remove.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'called with empty latitude and longitude'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User position cleared'
+                properties:
+                  message:
+                    type: string
+                    example: 'User position cleared'
+      tags:
+        - 'User Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                latitude:
+                  type: number
+                  description: 'optional The latitude of the user.'
+                  example: -6.2145
+                longitude:
+                  type: number
+                  description: 'optional The longitude of the user.'
+                  example: 106.8451
 tags:
   -
-    name: Endpoints
+    name: Authentication
+    description: "\nAPIs for managing authentication"
+  -
+    name: 'Position Provider'
+    description: ''
+  -
+    name: 'User Management'
     description: ''

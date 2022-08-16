@@ -70,18 +70,38 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-auth-google-sign-in">
-                        <a href="#endpoints-POSTapi-v1-auth-google-sign-in">Google SignIn</a>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-auth-google-sign-in">
+                        <a href="#authentication-POSTapi-v1-auth-google-sign-in">Google SignIn</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-auth-user">
-                        <a href="#endpoints-GETapi-v1-auth-user">Current User</a>
+                                    <li class="tocify-item level-2" data-unique="authentication-GETapi-v1-auth-user">
+                        <a href="#authentication-GETapi-v1-auth-user">Current User</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-auth-logout">
-                        <a href="#endpoints-POSTapi-v1-auth-logout">Logout</a>
+                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-auth-logout">
+                        <a href="#authentication-POSTapi-v1-auth-logout">Logout</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="position-provider">
+                    <a href="#position-provider">Position Provider</a>
+                </li>
+                                    <ul id="tocify-subheader-position-provider" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="position-provider-POSTapi-v1-position--user_id-">
+                        <a href="#position-provider-POSTapi-v1-position--user_id-">Get user position</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user-management">
+                    <a href="#user-management">User Management</a>
+                </li>
+                                    <ul id="tocify-subheader-user-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1-user-position-update">
+                        <a href="#user-management-POSTapi-v1-user-position-update">Update user position</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -114,11 +134,11 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="authentication">Authentication</h1>
 
-    
+    <p>APIs for managing authentication</p>
 
-            <h2 id="endpoints-POSTapi-v1-auth-google-sign-in">Google SignIn</h2>
+            <h2 id="authentication-POSTapi-v1-auth-google-sign-in">Google SignIn</h2>
 
 <p>
 </p>
@@ -172,11 +192,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 44,
-        &quot;name&quot;: &quot;Yusuf Widodo&quot;,
-        &quot;email&quot;: &quot;padmasari.samiah@example.org&quot;,
+        &quot;id&quot;: 78,
+        &quot;name&quot;: &quot;Ella Ratna Safitri S.E.I&quot;,
+        &quot;email&quot;: &quot;nilam.melani@example.org&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 565 8263 779&quot;,
+        &quot;phone&quot;: &quot;0898 674 446&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -256,7 +276,7 @@ fetch(url, {
         </p>
         </form>
 
-            <h2 id="endpoints-GETapi-v1-auth-user">Current User</h2>
+            <h2 id="authentication-GETapi-v1-auth-user">Current User</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -300,11 +320,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 45,
-        &quot;name&quot;: &quot;Agus Halim S.Gz&quot;,
-        &quot;email&quot;: &quot;nugroho.hesti@example.net&quot;,
+        &quot;id&quot;: 79,
+        &quot;name&quot;: &quot;Kiandra Unjani Melani S.Gz&quot;,
+        &quot;email&quot;: &quot;dongoran.diah@example.com&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0979 8998 811&quot;,
+        &quot;phone&quot;: &quot;025 3979 6310&quot;,
         &quot;is_vendor&quot;: false
     }
 }</code>
@@ -359,7 +379,7 @@ fetch(url, {
         </p>
                 </form>
 
-            <h2 id="endpoints-POSTapi-v1-auth-logout">Logout</h2>
+            <h2 id="authentication-POSTapi-v1-auth-logout">Logout</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -454,6 +474,262 @@ fetch(url, {
                                                                 data-component="header"></label>
         </p>
                 </form>
+
+        <h1 id="position-provider">Position Provider</h1>
+
+    
+
+            <h2 id="position-provider-POSTapi-v1-position--user_id-">Get user position</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get user position based on user id</p>
+
+<span id="example-requests-POSTapi-v1-position--user_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mage8-server.test/api/v1/position/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/position/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-position--user_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;latitude&quot;: 42.130255,
+        &quot;longitude&quot;: 97.032111,
+        &quot;datetime&quot;: null
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-position--user_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-position--user_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-position--user_id-"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-position--user_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-position--user_id-"></code></pre>
+</span>
+<form id="form-POSTapi-v1-position--user_id-" data-method="POST"
+      data-path="api/v1/position/{user_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-position--user_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-position--user_id-"
+                    onclick="tryItOut('POSTapi-v1-position--user_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-position--user_id-"
+                    onclick="cancelTryOut('POSTapi-v1-position--user_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-position--user_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/position/{user_id}</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-position--user_id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-position--user_id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="user_id"
+               data-endpoint="POSTapi-v1-position--user_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user</p>
+            </p>
+                    </form>
+
+        <h1 id="user-management">User Management</h1>
+
+    
+
+            <h2 id="user-management-POSTapi-v1-user-position-update">Update user position</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This will update the current user position, set to null to remove.</p>
+
+<span id="example-requests-POSTapi-v1-user-position-update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mage8-server.test/api/v1/user/position/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"latitude\": -6.2145,
+    \"longitude\": 106.8451
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/user/position/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "latitude": -6.2145,
+    "longitude": 106.8451
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-user-position-update">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;User position updated&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200, called with empty latitude and longitude):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;User position cleared&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-user-position-update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-user-position-update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-user-position-update"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-user-position-update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-user-position-update"></code></pre>
+</span>
+<form id="form-POSTapi-v1-user-position-update" data-method="POST"
+      data-path="api/v1/user/position/update"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-position-update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-user-position-update"
+                    onclick="tryItOut('POSTapi-v1-user-position-update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-user-position-update"
+                    onclick="cancelTryOut('POSTapi-v1-user-position-update');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-user-position-update" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/user/position/update</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-user-position-update" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-user-position-update"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="latitude"
+               data-endpoint="POSTapi-v1-user-position-update"
+               value="-6.2145"
+               data-component="body" hidden>
+    <br>
+<p>optional The latitude of the user.</p>
+        </p>
+                <p>
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="longitude"
+               data-endpoint="POSTapi-v1-user-position-update"
+               value="106.8451"
+               data-component="body" hidden>
+    <br>
+<p>optional The longitude of the user.</p>
+        </p>
+        </form>
 
     
 

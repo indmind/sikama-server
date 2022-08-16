@@ -10,14 +10,14 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "3c4aeff5-7947-4b45-8fdb-09776df24e2b",
+        "_postman_id": "3f269fea-cba0-412a-9319-c2361c2a8e47",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
-            "description": "",
+            "name": "Authentication",
+            "description": "\nAPIs for managing authentication",
             "item": [
                 {
                     "name": "Google SignIn",
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":44,\"name\":\"Yusuf Widodo\",\"email\":\"padmasari.samiah@example.org\",\"image_url\":null,\"phone\":\"(+62) 565 8263 779\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":78,\"name\":\"Ella Ratna Safitri S.E.I\",\"email\":\"nilam.melani@example.org\",\"image_url\":null,\"phone\":\"0898 674 446\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":45,\"name\":\"Agus Halim S.Gz\",\"email\":\"nugroho.hesti@example.net\",\"image_url\":null,\"phone\":\"0979 8998 811\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":79,\"name\":\"Kiandra Unjani Melani S.Gz\",\"email\":\"dongoran.diah@example.com\",\"image_url\":null,\"phone\":\"025 3979 6310\",\"is_vendor\":false}}",
                             "name": "0"
                         }
                     ]
@@ -118,6 +118,99 @@
                             "code": 200,
                             "body": "{\n \"message\": \"Logout Success\"\n}",
                             "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Position Provider",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get user position",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/position\/:user_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/position\/:user_id",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get user position based on user id"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"latitude\":42.130255,\"longitude\":97.032111,\"datetime\":null}}",
+                            "name": "0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "Update user position",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/user\/position\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/user\/position\/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"latitude\":-6.2145,\"longitude\":106.8451}"
+                        },
+                        "description": "This will update the current user position, set to null to remove."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"User position updated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"User position cleared\"\n}",
+                            "name": "called with empty latitude and longitude"
                         }
                     ]
                 }

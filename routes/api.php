@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\UserController;
+use App\Http\Controllers\Api\V1\UserPositionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +22,13 @@ Route::group(['prefix' => '/v1'], function () {
         Route::post('/google-sign-in', [AuthController::class, 'googleSignIn']);
         Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
         Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+    });
+
+    Route::group(['prefix' => '/user', 'middleware' => 'auth:sanctum'], function () {
+        Route::post('/position/update', [UserController::class, 'updatePosition']);
+    });
+
+    Route::group(['prefix' => '/position', 'middleware' => 'auth:sanctum'], function () {
+        Route::post('/{user}', [UserPositionController::class, 'getUserPosition']);
     });
 });

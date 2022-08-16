@@ -38,8 +38,8 @@ class Client extends Model
         });
     }
 
-    public function location() {
-        return $this->hasOne(Location::class);
+    public function position() {
+        return $this->hasOne(Position::class);
     }
 
     public function vendor() {

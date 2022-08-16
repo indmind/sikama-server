@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Socialite\Facades\Socialite;
 
+/**
+ * @group Authentication
+ * 
+ * APIs for managing authentication
+ */
 class AuthController extends Controller
 {
     /**
