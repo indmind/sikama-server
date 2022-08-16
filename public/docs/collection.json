@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "3f269fea-cba0-412a-9319-c2361c2a8e47",
+        "_postman_id": "6fd0121f-42df-4370-9b0d-140f152e0939",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":78,\"name\":\"Ella Ratna Safitri S.E.I\",\"email\":\"nilam.melani@example.org\",\"image_url\":null,\"phone\":\"0898 674 446\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":92,\"name\":\"Rini Hafshah Astuti\",\"email\":\"pratiwi.cici@example.net\",\"image_url\":null,\"phone\":\"0626 2704 3520\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":79,\"name\":\"Kiandra Unjani Melani S.Gz\",\"email\":\"dongoran.diah@example.com\",\"image_url\":null,\"phone\":\"025 3979 6310\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":93,\"name\":\"Diah Ika Usada\",\"email\":\"bbudiyanto@example.org\",\"image_url\":null,\"phone\":\"(+62) 465 3058 8545\",\"is_vendor\":false}}",
                             "name": "0"
                         }
                     ]
@@ -162,7 +162,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":42.130255,\"longitude\":97.032111,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":-84.042851,\"longitude\":-146.201546,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]
@@ -218,6 +218,6 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer"
     }
 }

@@ -132,7 +132,9 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://mage8-server.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve the token by calling Google SignIn endpoint with <strong>debug_token</strong> as access_token value.</p>
 
         <h1 id="authentication">Authentication</h1>
 
@@ -192,11 +194,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 78,
-        &quot;name&quot;: &quot;Ella Ratna Safitri S.E.I&quot;,
-        &quot;email&quot;: &quot;nilam.melani@example.org&quot;,
+        &quot;id&quot;: 92,
+        &quot;name&quot;: &quot;Rini Hafshah Astuti&quot;,
+        &quot;email&quot;: &quot;pratiwi.cici@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0898 674 446&quot;,
+        &quot;phone&quot;: &quot;0626 2704 3520&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -291,6 +293,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://mage8-server.test/api/v1/auth/user" \
+    --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -301,6 +304,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -320,11 +324,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 79,
-        &quot;name&quot;: &quot;Kiandra Unjani Melani S.Gz&quot;,
-        &quot;email&quot;: &quot;dongoran.diah@example.com&quot;,
+        &quot;id&quot;: 93,
+        &quot;name&quot;: &quot;Diah Ika Usada&quot;,
+        &quot;email&quot;: &quot;bbudiyanto@example.org&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;025 3979 6310&quot;,
+        &quot;phone&quot;: &quot;(+62) 465 3058 8545&quot;,
         &quot;is_vendor&quot;: false
     }
 }</code>
@@ -345,7 +349,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-auth-user', this);">
     <h3>
@@ -394,6 +398,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://mage8-server.test/api/v1/auth/logout" \
+    --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -404,6 +409,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -441,7 +447,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-logout', this);">
     <h3>
@@ -494,6 +500,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://mage8-server.test/api/v1/position/1" \
+    --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -504,6 +511,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -523,8 +531,8 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: 42.130255,
-        &quot;longitude&quot;: 97.032111,
+        &quot;latitude&quot;: -84.042851,
+        &quot;longitude&quot;: -146.201546,
         &quot;datetime&quot;: null
     }
 }</code>
@@ -545,7 +553,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-position--user_id-', this);">
     <h3>
@@ -609,6 +617,7 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://mage8-server.test/api/v1/user/position/update" \
+    --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -624,6 +633,7 @@ fetch(url, {
 );
 
 const headers = {
+    "Authorization": "Bearer {token}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -676,7 +686,7 @@ fetch(url, {
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-user-position-update', this);">
     <h3>

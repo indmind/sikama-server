@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 78
-                    name: 'Ella Ratna Safitri S.E.I'
-                    email: nilam.melani@example.org
+                    id: 92
+                    name: 'Rini Hafshah Astuti'
+                    email: pratiwi.cici@example.net
                     image_url: null
-                    phone: '0898 674 446'
+                    phone: '0626 2704 3520'
                     is_vendor: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 78
-                      name: 'Ella Ratna Safitri S.E.I'
-                      email: nilam.melani@example.org
+                      id: 92
+                      name: 'Rini Hafshah Astuti'
+                      email: pratiwi.cici@example.net
                       image_url: null
-                      phone: '0898 674 446'
+                      phone: '0626 2704 3520'
                       is_vendor: false
                   message:
                     type: string
@@ -91,6 +91,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -112,21 +119,21 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 79
-                    name: 'Kiandra Unjani Melani S.Gz'
-                    email: dongoran.diah@example.com
+                    id: 93
+                    name: 'Diah Ika Usada'
+                    email: bbudiyanto@example.org
                     image_url: null
-                    phone: '025 3979 6310'
+                    phone: '(+62) 465 3058 8545'
                     is_vendor: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 79
-                      name: 'Kiandra Unjani Melani S.Gz'
-                      email: dongoran.diah@example.com
+                      id: 93
+                      name: 'Diah Ika Usada'
+                      email: bbudiyanto@example.org
                       image_url: null
-                      phone: '025 3979 6310'
+                      phone: '(+62) 465 3058 8545'
                       is_vendor: false
       tags:
         - Authentication
@@ -135,6 +142,13 @@ paths:
       summary: Logout
       description: 'Revoke current user token, other token can still be used.'
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -171,6 +185,13 @@ paths:
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -192,15 +213,15 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: 42.130255
-                    longitude: 97.032111
+                    latitude: -84.042851
+                    longitude: -146.201546
                     datetime: null
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: 42.130255
-                      longitude: 97.032111
+                      latitude: -84.042851
+                      longitude: -146.201546
                       datetime: null
       tags:
         - 'Position Provider'
@@ -218,6 +239,13 @@ paths:
       summary: 'Update user position'
       description: 'This will update the current user position, set to null to remove.'
       parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
         -
           in: header
           name: Content-Type
@@ -272,3 +300,12 @@ tags:
   -
     name: 'User Management'
     description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

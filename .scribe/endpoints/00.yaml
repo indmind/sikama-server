@@ -42,7 +42,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":78,"name":"Ella Ratna Safitri S.E.I","email":"nilam.melani@example.org","image_url":null,"phone":"0898 674 446","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
+        content: '{"data":{"id":92,"name":"Rini Hafshah Astuti","email":"pratiwi.cici@example.net","image_url":null,"phone":"0626 2704 3520","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
         headers: []
         description: '0'
     responseFields: []
@@ -56,6 +56,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -64,7 +65,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":79,"name":"Kiandra Unjani Melani S.Gz","email":"dongoran.diah@example.com","image_url":null,"phone":"025 3979 6310","is_vendor":false}}'
+        content: '{"data":{"id":93,"name":"Diah Ika Usada","email":"bbudiyanto@example.org","image_url":null,"phone":"(+62) 465 3058 8545","is_vendor":false}}'
         headers: []
         description: '0'
     responseFields: []
@@ -78,6 +79,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []

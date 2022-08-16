@@ -13,6 +13,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -28,7 +29,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"latitude":42.130255,"longitude":97.032111,"datetime":null}}'
+        content: '{"data":{"latitude":-84.042851,"longitude":-146.201546,"datetime":null}}'
         headers: []
         description: '0'
     responseFields: []
