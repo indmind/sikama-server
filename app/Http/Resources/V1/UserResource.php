@@ -18,8 +18,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'google_id' => $this->google_id,
-            'image_path' => $this->image_path,
+            'image_url' => $this->image_url,
             'phone' => $this->phone,
             'is_vendor' => $this->vendor()->count() > 0,
         ];

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "ac6f0779-2c4a-421e-b531-6d15990e148f",
+        "_postman_id": "3c4aeff5-7947-4b45-8fdb-09776df24e2b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Login user and create token using Google access token.",
+                    "name": "Google SignIn",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -41,9 +41,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"access_token\":\"aut\",\"fcm_token\":\"quam\",\"device_name\":\"asperiores\"}"
+                            "raw": "{\"access_token\":\"debug_token\",\"device_name\":\"Scribe\"}"
                         },
-                        "description": "",
+                        "description": "Login user and create token using Google access token.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -52,19 +52,19 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":13,\"name\":\"Irnanto Gada Firgantoro\",\"email\":\"manah.wijayanti@example.net\",\"google_id\":\"0f4da853-56f7-3e9a-9691-21cb5a748aae\",\"image_path\":null,\"phone\":\"0662 5313 607\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":44,\"name\":\"Yusuf Widodo\",\"email\":\"padmasari.samiah@example.org\",\"image_url\":null,\"phone\":\"(+62) 565 8263 779\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
                 },
                 {
-                    "name": "api\/v1\/user",
+                    "name": "Current User",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/user",
+                            "path": "api\/v1\/auth\/user",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/user"
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/user"
                         },
                         "method": "GET",
                         "header": [
@@ -78,29 +78,45 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": "Get the authenticated user."
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":45,\"name\":\"Agus Halim S.Gz\",\"email\":\"nugroho.hesti@example.net\",\"image_url\":null,\"phone\":\"0979 8998 811\",\"is_vendor\":false}}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Revoke current user token, other token can still be used."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Logout Success\"\n}",
                             "name": ""
                         }
                     ]

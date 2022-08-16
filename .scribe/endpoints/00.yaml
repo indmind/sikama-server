@@ -6,8 +6,8 @@ endpoints:
       - POST
     uri: api/v1/auth/google-sign-in
     metadata:
-      title: 'Login user and create token using Google access token.'
-      description: ''
+      title: 'Google SignIn'
+      description: 'Login user and create token using Google access token.'
       authenticated: false
       custom: []
     headers:
@@ -18,40 +18,40 @@ endpoints:
     bodyParameters:
       access_token:
         name: access_token
-        description: 'Google access token.'
+        description: 'Google access token. Use `debug_token` for debugging (only works in debug mode).'
         required: true
-        example: aut
+        example: debug_token
         type: string
         custom: []
       fcm_token:
         name: fcm_token
         description: 'optional Firebase Cloud Messaging token.'
         required: false
-        example: quam
+        example: null
         type: string
         custom: []
       device_name:
         name: device_name
         description: 'Device name the user is using.'
         required: true
-        example: asperiores
+        example: Scribe
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":13,"name":"Irnanto Gada Firgantoro","email":"manah.wijayanti@example.net","google_id":"0f4da853-56f7-3e9a-9691-21cb5a748aae","image_path":null,"phone":"0662 5313 607","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
+        content: '{"data":{"id":44,"name":"Yusuf Widodo","email":"padmasari.samiah@example.org","image_url":null,"phone":"(+62) 565 8263 779","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
         headers: []
         description: '0'
     responseFields: []
   -
     httpMethods:
       - GET
-    uri: api/v1/user
+    uri: api/v1/auth/user
     metadata:
-      title: ''
-      description: ''
-      authenticated: false
+      title: 'Current User'
+      description: 'Get the authenticated user.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -61,11 +61,33 @@ endpoints:
     bodyParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: '{"data":{"id":45,"name":"Agus Halim S.Gz","email":"nugroho.hesti@example.net","image_url":null,"phone":"0979 8998 811","is_vendor":false}}'
+        headers: []
+        description: '0'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/logout
+    metadata:
+      title: Logout
+      description: 'Revoke current user token, other token can still be used.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "message": "Logout Success"
+          }
+        headers: []
+        description: '200'
     responseFields: []

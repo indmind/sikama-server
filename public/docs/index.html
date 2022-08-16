@@ -75,10 +75,13 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-auth-google-sign-in">
-                        <a href="#endpoints-POSTapi-v1-auth-google-sign-in">Login user and create token using Google access token.</a>
+                        <a href="#endpoints-POSTapi-v1-auth-google-sign-in">Google SignIn</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-user">
-                        <a href="#endpoints-GETapi-v1-user">GET api/v1/user</a>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-auth-user">
+                        <a href="#endpoints-GETapi-v1-auth-user">Current User</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-auth-logout">
+                        <a href="#endpoints-POSTapi-v1-auth-logout">Logout</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -92,7 +95,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 12 2022</li>
+        <li>Last updated: August 16 2022</li>
     </ul>
 </div>
 
@@ -115,12 +118,12 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-            <h2 id="endpoints-POSTapi-v1-auth-google-sign-in">Login user and create token using Google access token.</h2>
+            <h2 id="endpoints-POSTapi-v1-auth-google-sign-in">Google SignIn</h2>
 
 <p>
 </p>
 
-
+<p>Login user and create token using Google access token.</p>
 
 <span id="example-requests-POSTapi-v1-auth-google-sign-in">
 <blockquote>Example request:</blockquote>
@@ -132,9 +135,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"access_token\": \"aut\",
-    \"fcm_token\": \"quam\",
-    \"device_name\": \"asperiores\"
+    \"access_token\": \"debug_token\",
+    \"device_name\": \"Scribe\"
 }"
 </code></pre></div>
 
@@ -150,9 +152,8 @@ const headers = {
 };
 
 let body = {
-    "access_token": "aut",
-    "fcm_token": "quam",
-    "device_name": "asperiores"
+    "access_token": "debug_token",
+    "device_name": "Scribe"
 };
 
 fetch(url, {
@@ -171,12 +172,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 13,
-        &quot;name&quot;: &quot;Irnanto Gada Firgantoro&quot;,
-        &quot;email&quot;: &quot;manah.wijayanti@example.net&quot;,
-        &quot;google_id&quot;: &quot;0f4da853-56f7-3e9a-9691-21cb5a748aae&quot;,
-        &quot;image_path&quot;: null,
-        &quot;phone&quot;: &quot;0662 5313 607&quot;,
+        &quot;id&quot;: 44,
+        &quot;name&quot;: &quot;Yusuf Widodo&quot;,
+        &quot;email&quot;: &quot;padmasari.samiah@example.org&quot;,
+        &quot;image_url&quot;: null,
+        &quot;phone&quot;: &quot;(+62) 565 8263 779&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -229,17 +229,17 @@ fetch(url, {
                 <input type="text"
                name="access_token"
                data-endpoint="POSTapi-v1-auth-google-sign-in"
-               value="aut"
+               value="debug_token"
                data-component="body" hidden>
     <br>
-<p>Google access token.</p>
+<p>Google access token. Use <code>debug_token</code> for debugging (only works in debug mode).</p>
         </p>
                 <p>
             <b><code>fcm_token</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="fcm_token"
                data-endpoint="POSTapi-v1-auth-google-sign-in"
-               value="quam"
+               value=""
                data-component="body" hidden>
     <br>
 <p>optional Firebase Cloud Messaging token.</p>
@@ -249,34 +249,35 @@ fetch(url, {
                 <input type="text"
                name="device_name"
                data-endpoint="POSTapi-v1-auth-google-sign-in"
-               value="asperiores"
+               value="Scribe"
                data-component="body" hidden>
     <br>
 <p>Device name the user is using.</p>
         </p>
         </form>
 
-            <h2 id="endpoints-GETapi-v1-user">GET api/v1/user</h2>
+            <h2 id="endpoints-GETapi-v1-auth-user">Current User</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
+<p>Get the authenticated user.</p>
 
-
-<span id="example-requests-GETapi-v1-user">
+<span id="example-requests-GETapi-v1-auth-user">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://mage8-server.test/api/v1/user" \
+    --get "http://mage8-server.test/api/v1/auth/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://mage8-server.test/api/v1/user"
+    "http://mage8-server.test/api/v1/auth/user"
 );
 
 const headers = {
@@ -291,65 +292,168 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-user">
+<span id="example-responses-GETapi-v1-auth-user">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
+                <pre>
 
 <code class="language-json">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 45,
+        &quot;name&quot;: &quot;Agus Halim S.Gz&quot;,
+        &quot;email&quot;: &quot;nugroho.hesti@example.net&quot;,
+        &quot;image_url&quot;: null,
+        &quot;phone&quot;: &quot;0979 8998 811&quot;,
+        &quot;is_vendor&quot;: false
+    }
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-user" hidden>
+<span id="execution-results-GETapi-v1-auth-user" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-user"></span>:
+                id="execution-response-status-GETapi-v1-auth-user"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-user"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-auth-user"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-user" hidden>
+<span id="execution-error-GETapi-v1-auth-user" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-user"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-auth-user"></code></pre>
 </span>
-<form id="form-GETapi-v1-user" data-method="GET"
-      data-path="api/v1/user"
-      data-authed="0"
+<form id="form-GETapi-v1-auth-user" data-method="GET"
+      data-path="api/v1/auth/user"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-auth-user', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-user"
-                    onclick="tryItOut('GETapi-v1-user');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-auth-user"
+                    onclick="tryItOut('GETapi-v1-auth-user');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-user"
-                    onclick="cancelTryOut('GETapi-v1-user');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-auth-user"
+                    onclick="cancelTryOut('GETapi-v1-auth-user');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-user" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-auth-user" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/user</code></b>
+            <b><code>api/v1/auth/user</code></b>
         </p>
-                    </form>
+                <p>
+            <label id="auth-GETapi-v1-auth-user" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1-auth-user"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="endpoints-POSTapi-v1-auth-logout">Logout</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Revoke current user token, other token can still be used.</p>
+
+<span id="example-requests-POSTapi-v1-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mage8-server.test/api/v1/auth/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/auth/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-auth-logout">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Logout Success&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-auth-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-auth-logout"></code></pre>
+</span>
+<form id="form-POSTapi-v1-auth-logout" data-method="POST"
+      data-path="api/v1/auth/logout"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-auth-logout"
+                    onclick="tryItOut('POSTapi-v1-auth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-auth-logout"
+                    onclick="cancelTryOut('POSTapi-v1-auth-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-auth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/auth/logout</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-auth-logout" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-auth-logout"
+                                                                data-component="header"></label>
+        </p>
+                </form>
 
     
 

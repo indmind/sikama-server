@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Sanctum\HasApiTokens;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
 
     protected $fillable = [
         'name', 'email', 'google_id', 'image_path', 'phone',
@@ -51,5 +52,15 @@ class Client extends Model
 
     public function getIsVendorAttribute() {
         return $this->vendor !== null;
+    }
+
+    public function getImageUrlAttribute() {
+        $imagePath = $this->image_path;
+
+        if ($imagePath) {
+            return Storage::disk('public')->url($imagePath);
+        }
+
+        return null;
     }
 }

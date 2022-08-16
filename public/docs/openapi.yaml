@@ -9,8 +9,8 @@ servers:
 paths:
   /api/v1/auth/google-sign-in:
     post:
-      summary: 'Login user and create token using Google access token.'
-      description: ''
+      summary: 'Google SignIn'
+      description: 'Login user and create token using Google access token.'
       parameters:
         -
           in: header
@@ -35,12 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 13
-                    name: 'Irnanto Gada Firgantoro'
-                    email: manah.wijayanti@example.net
-                    google_id: 0f4da853-56f7-3e9a-9691-21cb5a748aae
-                    image_path: null
-                    phone: '0662 5313 607'
+                    id: 44
+                    name: 'Yusuf Widodo'
+                    email: padmasari.samiah@example.org
+                    image_url: null
+                    phone: '(+62) 565 8263 779'
                     is_vendor: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -48,12 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 13
-                      name: 'Irnanto Gada Firgantoro'
-                      email: manah.wijayanti@example.net
-                      google_id: 0f4da853-56f7-3e9a-9691-21cb5a748aae
-                      image_path: null
-                      phone: '0662 5313 607'
+                      id: 44
+                      name: 'Yusuf Widodo'
+                      email: padmasari.samiah@example.org
+                      image_url: null
+                      phone: '(+62) 565 8263 779'
                       is_vendor: false
                   message:
                     type: string
@@ -72,24 +70,24 @@ paths:
               properties:
                 access_token:
                   type: string
-                  description: 'Google access token.'
-                  example: aut
+                  description: 'Google access token. Use `debug_token` for debugging (only works in debug mode).'
+                  example: debug_token
                 fcm_token:
                   type: string
                   description: 'optional Firebase Cloud Messaging token.'
-                  example: quam
+                  example: null
                 device_name:
                   type: string
                   description: 'Device name the user is using.'
-                  example: asperiores
+                  example: Scribe
               required:
                 - access_token
                 - device_name
       security: []
-  /api/v1/user:
+  /api/v1/auth/user:
     get:
-      summary: ''
-      description: ''
+      summary: 'Current User'
+      description: 'Get the authenticated user.'
       parameters:
         -
           in: header
@@ -106,21 +104,66 @@ paths:
           schema:
             type: string
       responses:
-        401:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 45
+                    name: 'Agus Halim S.Gz'
+                    email: nugroho.hesti@example.net
+                    image_url: null
+                    phone: '0979 8998 811'
+                    is_vendor: false
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 45
+                      name: 'Agus Halim S.Gz'
+                      email: nugroho.hesti@example.net
+                      image_url: null
+                      phone: '0979 8998 811'
+                      is_vendor: false
+      tags:
+        - Endpoints
+  /api/v1/auth/logout:
+    post:
+      summary: Logout
+      description: 'Revoke current user token, other token can still be used.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'Logout Success'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'Logout Success'
       tags:
         - Endpoints
-      security: []
 tags:
   -
     name: Endpoints
