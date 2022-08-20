@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\CustomerOrderController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\UserPositionController;
 use App\Http\Controllers\Api\V1\VendorController;
@@ -35,5 +36,11 @@ Route::group(['prefix' => '/v1'], function () {
     Route::group(['prefix' => '/vendors', 'middleware' => 'auth:sanctum'], function () {
         Route::get('/nearest', [VendorController::class, 'nearest']);
         Route::get('/{vendor}', [VendorController::class, 'show']);
+    });
+
+    Route::group(['prefix' => '/orders', 'middleware' => 'auth:sanctum'], function () {
+        Route::get('/', [CustomerOrderController::class, 'index']);
+        Route::post('/', [CustomerOrderController::class, 'order']);
+        Route::post('/{order}/cancel', [CustomerOrderController::class, 'cancel']);
     });
 });

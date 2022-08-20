@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'image_url' => $this->image_url,
             'phone' => $this->phone,
-            'is_vendor' => $this->vendor()->count() > 0,
+            'is_seller' => $this->is_seller,
             'position' => new UserPositionResource($this->whenLoaded('position')),
         ];
     }

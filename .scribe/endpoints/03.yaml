@@ -1,13 +1,13 @@
-name: 'Vendor for Client'
+name: 'User Management'
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v1/vendors/nearest
+      - POST
+    uri: api/v1/user/position/update
     metadata:
-      title: 'Get nearest vendors'
-      description: 'Get nearest vendors based on current user position or provided position'
+      title: 'Update user position'
+      description: 'This will update the current user position, set to null to remove.'
       authenticated: true
       custom: []
     headers:
@@ -15,86 +15,37 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters:
+    queryParameters: []
+    bodyParameters:
       latitude:
         name: latitude
-        description: 'optional The latitude of the user, will use current user location when null.'
+        description: 'optional The latitude of the user.'
         required: false
         example: '-6.2145'
         type: string
         custom: []
       longitude:
         name: longitude
-        description: 'optional The longitude of the user, will use current user location when null.'
+        description: 'optional The longitude of the user.'
         required: false
         example: '106.8451'
         type: string
         custom: []
-    bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null}}'
-        headers: []
-        description: '0'
-      -
-        status: 400
         content: |-
           {
-               "message": "Please provide latitude and longitude"
+           "message": "User position updated"
           }
         headers: []
-        description: '400, called with empty latitude and longitude and no user position'
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/vendors/{vendor_id}'
-    metadata:
-      title: 'Get vendor detail'
-      description: 'Get vendor detail by id'
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {token}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      vendor_id:
-        name: vendor_id
-        description: 'The id of the vendor.'
-        required: true
-        example: '1'
-        type: string
-        custom: []
-    queryParameters:
-      latitude:
-        name: latitude
-        description: 'optional The latitude of the user, will use current user location when null.'
-        required: false
-        example: '-6.2145'
-        type: string
-        custom: []
-      longitude:
-        name: longitude
-        description: 'optional The longitude of the user, will use current user location when null.'
-        required: false
-        example: '106.8451'
-        type: string
-        custom: []
-    bodyParameters: []
-    responses:
+        description: '200'
       -
         status: 200
-        content: '{"data":{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null}}'
-        headers: []
-        description: '0'
-      -
-        status: 4004
         content: |-
           {
-               "message": "Vendor not found"
+           "message": "User position cleared"
           }
         headers: []
-        description: '4004, called with invalid vendor id'
+        description: '200, called with empty latitude and longitude'
     responseFields: []

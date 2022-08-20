@@ -24,7 +24,7 @@ class VendorController extends Controller
      * @queryParam latitude string optional The latitude of the user, will use current user location when null. Example: -6.2145
      * @queryParam longitude string optional The longitude of the user, will use current user location when null. Example: 106.8451
      *
-     * @apiResource App\Http\Resources\V1\VendorResource
+     * @apiResourceCollection App\Http\Resources\V1\VendorResource
      * @apiResourceModel App\Models\Vendor
      *
      * @response scenario="called with empty latitude and longitude and no user position" status=400 {

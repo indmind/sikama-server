@@ -44,7 +44,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":116,"name":"Kunthara Ibrani Siregar M.Kom.","email":"ade.thamrin@example.com","image_url":null,"phone":"0881 260 871","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
+        content: '{"data":{"id":139,"name":"Dasa Iswahyudi","email":"bancar49@example.net","image_url":null,"phone":"0281 5338 652","is_seller":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
         headers: []
         description: '0'
     responseFields: []
@@ -67,7 +67,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":117,"name":"Zaenab Vera Puspasari","email":"ayu.sihombing@example.net","image_url":null,"phone":"(+62) 529 6916 260","is_vendor":false}}'
+        content: '{"data":{"id":140,"name":"Diah Hariyah","email":"aurora96@example.com","image_url":null,"phone":"(+62) 977 1437 509","is_seller":false}}'
         headers: []
         description: '0'
     responseFields: []

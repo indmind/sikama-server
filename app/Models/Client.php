@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,10 @@ class Client extends Model
 
     protected $fillable = [
         'name', 'email', 'google_id', 'image_path', 'phone',
+    ];
+
+    protected $appends = [
+        'is_seller',
     ];
 
     protected static function boot()
@@ -50,12 +55,14 @@ class Client extends Model
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class, 'customer_id');
     }
 
-    public function getIsVendorAttribute()
+    public function isSeller(): Attribute
     {
-        return $this->vendor !== null;
+        return Attribute::make(
+            get: fn () => $this->vendor()->exists(),
+        );
     }
 
     public function getImageUrlAttribute()
@@ -67,5 +74,16 @@ class Client extends Model
         }
 
         return null;
+    }
+
+    // static callers
+    public static function customers()
+    {
+        return Client::doesntHave('vendor');
+    }
+
+    public static function sellers()
+    {
+        return Client::has('vendor');
     }
 }

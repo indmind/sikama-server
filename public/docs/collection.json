@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "c13d4cd8-149b-4d6e-b9f1-33edf76926c5",
+        "_postman_id": "b3107add-de92-4a13-8ec4-f5776f49e5a1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":116,\"name\":\"Kunthara Ibrani Siregar M.Kom.\",\"email\":\"ade.thamrin@example.com\",\"image_url\":null,\"phone\":\"0881 260 871\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":139,\"name\":\"Dasa Iswahyudi\",\"email\":\"bancar49@example.net\",\"image_url\":null,\"phone\":\"0281 5338 652\",\"is_seller\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":117,\"name\":\"Zaenab Vera Puspasari\",\"email\":\"ayu.sihombing@example.net\",\"image_url\":null,\"phone\":\"(+62) 529 6916 260\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":140,\"name\":\"Diah Hariyah\",\"email\":\"aurora96@example.com\",\"image_url\":null,\"phone\":\"(+62) 977 1437 509\",\"is_seller\":false}}",
                             "name": "0"
                         }
                     ]
@@ -118,6 +118,149 @@
                             "code": 200,
                             "body": "{\n \"message\": \"Logout Success\"\n}",
                             "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Customer Order",
+            "description": "",
+            "item": [
+                {
+                    "name": "Add order to queue",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/orders",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/orders"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"vendor_id\":2,\"schedule_time\":\"2050-01-01 15:00:00\"}"
+                        },
+                        "description": "Add order to queue for processing"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":13,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T17:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":1}}",
+                            "name": "0"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"The selected vendor id is invalid.\",\n\"errors\": {\n     \"vendor_id\": [\n         \"The selected vendor id is invalid.\"\n     ]\n }\n}",
+                            "name": "Vendor not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n \"message\": \"You already have an order in progress for this vendor\"\n}",
+                            "name": "Already ordered"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n \"message\": \"You cannot order from yourself\"\n}",
+                            "name": "Ordered themselves"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get all orders",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/orders",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/orders"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get all orders for current user"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":11,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T19:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":2},{\"id\":12,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T20:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":2}]}",
+                            "name": "0"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cancel order",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/orders\/:order_id\/cancel",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/orders\/:order_id\/cancel",
+                            "variable": [
+                                {
+                                    "id": "order_id",
+                                    "key": "order_id",
+                                    "value": "1",
+                                    "description": "The id of the order."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Cancel order for specific order id"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"message\": \"Order cancelled\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"message\": \"The selected order id is invalid.\"\n}",
+                            "name": "Order not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n\"message\": \"You cannot cancel an order that is in progress\"\n}",
+                            "name": "Order is in progress, cannot cancel"
                         }
                     ]
                 }
@@ -162,7 +305,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":-75.908247,\"longitude\":171.547537,\"datetime\":\"2022-08-20T06:03:15.000000Z\"}}",
+                            "body": "{\"data\":{\"latitude\":-43.658745,\"longitude\":120.877558,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]
@@ -260,7 +403,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}}",
+                            "body": "{\"data\":[{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null},{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}]}",
                             "name": "0"
                         },
                         {

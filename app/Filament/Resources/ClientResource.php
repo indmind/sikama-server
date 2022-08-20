@@ -66,7 +66,7 @@ class ClientResource extends Resource
                 Tables\Columns\ImageColumn::make('image_path')
                     ->label('Image'),
                 Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\BooleanColumn::make('is_vendor'),
+                Tables\Columns\BooleanColumn::make('is_seller'),
                 Tables\Columns\BooleanColumn::make('vendor.is_verified')
                     ->label('Is Verified Vendor')
                     ->default(false),

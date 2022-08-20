@@ -1,13 +1,102 @@
-name: 'Position Provider'
+name: 'Customer Order'
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/positions/{user_id}'
+      - POST
+    uri: api/v1/orders
     metadata:
-      title: 'Get user position'
-      description: 'Get user position based on user id'
+      title: 'Add order to queue'
+      description: 'Add order to queue for processing'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {token}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      vendor_id:
+        name: vendor_id
+        description: 'The id of the vendor.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+      schedule_time:
+        name: schedule_time
+        description: 'optional The time the order should be scheduled in UTC format and should be in the future.'
+        required: false
+        example: '2050-01-01 15:00:00'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":13,"customer_id":120,"vendor_id":2,"schedule_time":"2022-08-20T17:44:14.000000Z","status":"active","created_at":"2022-08-20T07:44:14.000000Z","queue_number":1}}'
+        headers: []
+        description: '0'
+      -
+        status: 404
+        content: |-
+          {
+          "message": "The selected vendor id is invalid.",
+          "errors": {
+               "vendor_id": [
+                   "The selected vendor id is invalid."
+               ]
+           }
+          }
+        headers: []
+        description: '404, Vendor not found'
+      -
+        status: 400
+        content: |-
+          {
+           "message": "You already have an order in progress for this vendor"
+          }
+        headers: []
+        description: '400, Already ordered'
+      -
+        status: 403
+        content: |-
+          {
+           "message": "You cannot order from yourself"
+          }
+        headers: []
+        description: '403, Ordered themselves'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/orders
+    metadata:
+      title: 'Get all orders'
+      description: 'Get all orders for current user'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {token}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":11,"customer_id":120,"vendor_id":2,"schedule_time":"2022-08-20T19:44:14.000000Z","status":"active","created_at":"2022-08-20T07:44:14.000000Z","queue_number":2},{"id":12,"customer_id":120,"vendor_id":2,"schedule_time":"2022-08-20T20:44:14.000000Z","status":"active","created_at":"2022-08-20T07:44:14.000000Z","queue_number":2}]}'
+        headers: []
+        description: '0'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/orders/{order_id}/cancel'
+    metadata:
+      title: 'Cancel order'
+      description: 'Cancel order for specific order id'
       authenticated: true
       custom: []
     headers:
@@ -15,9 +104,9 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      user_id:
-        name: user_id
-        description: 'The ID of the user'
+      order_id:
+        name: order_id
+        description: 'The id of the order.'
         required: true
         example: '1'
         type: string
@@ -27,7 +116,26 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"latitude":-75.908247,"longitude":171.547537,"datetime":"2022-08-20T06:03:15.000000Z"}}'
+        content: |-
+          {
+           "message": "Order cancelled"
+          }
         headers: []
-        description: '0'
+        description: '200'
+      -
+        status: 404
+        content: |-
+          {
+           "message": "The selected order id is invalid."
+          }
+        headers: []
+        description: '404, Order not found'
+      -
+        status: 400
+        content: |-
+          {
+          "message": "You cannot cancel an order that is in progress"
+          }
+        headers: []
+        description: '400, Order is in progress, cannot cancel'
     responseFields: []

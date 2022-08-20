@@ -35,24 +35,24 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 116
-                    name: 'Kunthara Ibrani Siregar M.Kom.'
-                    email: ade.thamrin@example.com
+                    id: 139
+                    name: 'Dasa Iswahyudi'
+                    email: bancar49@example.net
                     image_url: null
-                    phone: '0881 260 871'
-                    is_vendor: false
+                    phone: '0281 5338 652'
+                    is_seller: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
                 properties:
                   data:
                     type: object
                     example:
-                      id: 116
-                      name: 'Kunthara Ibrani Siregar M.Kom.'
-                      email: ade.thamrin@example.com
+                      id: 139
+                      name: 'Dasa Iswahyudi'
+                      email: bancar49@example.net
                       image_url: null
-                      phone: '0881 260 871'
-                      is_vendor: false
+                      phone: '0281 5338 652'
+                      is_seller: false
                   message:
                     type: string
                     example: 'Login Success'
@@ -119,22 +119,22 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 117
-                    name: 'Zaenab Vera Puspasari'
-                    email: ayu.sihombing@example.net
+                    id: 140
+                    name: 'Diah Hariyah'
+                    email: aurora96@example.com
                     image_url: null
-                    phone: '(+62) 529 6916 260'
-                    is_vendor: false
+                    phone: '(+62) 977 1437 509'
+                    is_seller: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 117
-                      name: 'Zaenab Vera Puspasari'
-                      email: ayu.sihombing@example.net
+                      id: 140
+                      name: 'Diah Hariyah'
+                      email: aurora96@example.com
                       image_url: null
-                      phone: '(+62) 529 6916 260'
-                      is_vendor: false
+                      phone: '(+62) 977 1437 509'
+                      is_seller: false
       tags:
         - Authentication
   /api/v1/auth/logout:
@@ -178,6 +178,270 @@ paths:
                     example: 'Logout Success'
       tags:
         - Authentication
+  /api/v1/orders:
+    post:
+      summary: 'Add order to queue'
+      description: 'Add order to queue for processing'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 13
+                    customer_id: 120
+                    vendor_id: 2
+                    schedule_time: '2022-08-20T17:44:14.000000Z'
+                    status: active
+                    created_at: '2022-08-20T07:44:14.000000Z'
+                    queue_number: 1
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 13
+                      customer_id: 120
+                      vendor_id: 2
+                      schedule_time: '2022-08-20T17:44:14.000000Z'
+                      status: active
+                      created_at: '2022-08-20T07:44:14.000000Z'
+                      queue_number: 1
+        404:
+          description: 'Vendor not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The selected vendor id is invalid.'
+                  errors:
+                    vendor_id:
+                      - 'The selected vendor id is invalid.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The selected vendor id is invalid.'
+                  errors:
+                    type: object
+                    example:
+                      vendor_id:
+                        - 'The selected vendor id is invalid.'
+        400:
+          description: 'Already ordered'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You already have an order in progress for this vendor'
+                properties:
+                  message:
+                    type: string
+                    example: 'You already have an order in progress for this vendor'
+        403:
+          description: 'Ordered themselves'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You cannot order from yourself'
+                properties:
+                  message:
+                    type: string
+                    example: 'You cannot order from yourself'
+      tags:
+        - 'Customer Order'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vendor_id:
+                  type: integer
+                  description: 'The id of the vendor.'
+                  example: 2
+                schedule_time:
+                  type: string
+                  description: 'optional The time the order should be scheduled in UTC format and should be in the future.'
+                  example: '2050-01-01 15:00:00'
+              required:
+                - vendor_id
+    get:
+      summary: 'Get all orders'
+      description: 'Get all orders for current user'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 11
+                      customer_id: 120
+                      vendor_id: 2
+                      schedule_time: '2022-08-20T19:44:14.000000Z'
+                      status: active
+                      created_at: '2022-08-20T07:44:14.000000Z'
+                      queue_number: 2
+                    -
+                      id: 12
+                      customer_id: 120
+                      vendor_id: 2
+                      schedule_time: '2022-08-20T20:44:14.000000Z'
+                      status: active
+                      created_at: '2022-08-20T07:44:14.000000Z'
+                      queue_number: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 11
+                        customer_id: 120
+                        vendor_id: 2
+                        schedule_time: '2022-08-20T19:44:14.000000Z'
+                        status: active
+                        created_at: '2022-08-20T07:44:14.000000Z'
+                        queue_number: 2
+                      -
+                        id: 12
+                        customer_id: 120
+                        vendor_id: 2
+                        schedule_time: '2022-08-20T20:44:14.000000Z'
+                        status: active
+                        created_at: '2022-08-20T07:44:14.000000Z'
+                        queue_number: 2
+                    items:
+                      type: object
+      tags:
+        - 'Customer Order'
+  '/api/v1/orders/{order_id}/cancel':
+    post:
+      summary: 'Cancel order'
+      description: 'Cancel order for specific order id'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Order cancelled'
+                properties:
+                  message:
+                    type: string
+                    example: 'Order cancelled'
+        404:
+          description: 'Order not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The selected order id is invalid.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The selected order id is invalid.'
+        400:
+          description: 'Order is in progress, cannot cancel'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You cannot cancel an order that is in progress'
+                properties:
+                  message:
+                    type: string
+                    example: 'You cannot cancel an order that is in progress'
+      tags:
+        - 'Customer Order'
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The id of the order.'
+        example: '1'
+        required: true
+        schema:
+          type: string
   '/api/v1/positions/{user_id}':
     get:
       summary: 'Get user position'
@@ -213,16 +477,16 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: -75.908247
-                    longitude: 171.547537
-                    datetime: '2022-08-20T06:03:15.000000Z'
+                    latitude: -43.658745
+                    longitude: 120.877558
+                    datetime: null
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: -75.908247
-                      longitude: 171.547537
-                      datetime: '2022-08-20T06:03:15.000000Z'
+                      latitude: -43.658745
+                      longitude: 120.877558
+                      datetime: null
       tags:
         - 'Position Provider'
     parameters:
@@ -345,21 +609,7 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 1
-                    seller_id: 1
-                    verified_by: 1
-                    category_id: 1
-                    name: 'Bajigur Mantap'
-                    description: 'Jual bajigur dengan rasa yang sangat mantap'
-                    is_verified: 1
-                    is_active: 1
-                    created_at: '2022-08-12T08:00:39.000000Z'
-                    updated_at: '2022-08-20T04:59:58.000000Z'
-                    distance: null
-                properties:
-                  data:
-                    type: object
-                    example:
+                    -
                       id: 1
                       seller_id: 1
                       verified_by: 1
@@ -371,6 +621,48 @@ paths:
                       created_at: '2022-08-12T08:00:39.000000Z'
                       updated_at: '2022-08-20T04:59:58.000000Z'
                       distance: null
+                    -
+                      id: 1
+                      seller_id: 1
+                      verified_by: 1
+                      category_id: 1
+                      name: 'Bajigur Mantap'
+                      description: 'Jual bajigur dengan rasa yang sangat mantap'
+                      is_verified: 1
+                      is_active: 1
+                      created_at: '2022-08-12T08:00:39.000000Z'
+                      updated_at: '2022-08-20T04:59:58.000000Z'
+                      distance: null
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        seller_id: 1
+                        verified_by: 1
+                        category_id: 1
+                        name: 'Bajigur Mantap'
+                        description: 'Jual bajigur dengan rasa yang sangat mantap'
+                        is_verified: 1
+                        is_active: 1
+                        created_at: '2022-08-12T08:00:39.000000Z'
+                        updated_at: '2022-08-20T04:59:58.000000Z'
+                        distance: null
+                      -
+                        id: 1
+                        seller_id: 1
+                        verified_by: 1
+                        category_id: 1
+                        name: 'Bajigur Mantap'
+                        description: 'Jual bajigur dengan rasa yang sangat mantap'
+                        is_verified: 1
+                        is_active: 1
+                        created_at: '2022-08-12T08:00:39.000000Z'
+                        updated_at: '2022-08-20T04:59:58.000000Z'
+                        distance: null
+                    items:
+                      type: object
         400:
           description: 'called with empty latitude and longitude and no user position'
           content:
@@ -493,6 +785,9 @@ tags:
   -
     name: Authentication
     description: "\nAPIs for managing authentication"
+  -
+    name: 'Customer Order'
+    description: ''
   -
     name: 'Position Provider'
     description: ''

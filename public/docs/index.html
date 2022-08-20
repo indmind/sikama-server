@@ -86,6 +86,22 @@
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="customer-order">
+                    <a href="#customer-order">Customer Order</a>
+                </li>
+                                    <ul id="tocify-subheader-customer-order" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="customer-order-POSTapi-v1-orders">
+                        <a href="#customer-order-POSTapi-v1-orders">Add order to queue</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="customer-order-GETapi-v1-orders">
+                        <a href="#customer-order-GETapi-v1-orders">Get all orders</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="customer-order-POSTapi-v1-orders--order_id--cancel">
+                        <a href="#customer-order-POSTapi-v1-orders--order_id--cancel">Cancel order</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="position-provider">
                     <a href="#position-provider">Position Provider</a>
                 </li>
@@ -95,7 +111,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-4" class="tocify-header">
+                    <ul id="tocify-header-5" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="user-management">
                     <a href="#user-management">User Management</a>
                 </li>
@@ -105,7 +121,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-5" class="tocify-header">
+                    <ul id="tocify-header-6" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="vendor-for-client">
                     <a href="#vendor-for-client">Vendor for Client</a>
                 </li>
@@ -145,7 +161,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://mage8-server.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve the token by calling Google SignIn endpoint with <strong>debug_token</strong> as access_token value.</p>
 
@@ -207,12 +223,12 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 116,
-        &quot;name&quot;: &quot;Kunthara Ibrani Siregar M.Kom.&quot;,
-        &quot;email&quot;: &quot;ade.thamrin@example.com&quot;,
+        &quot;id&quot;: 139,
+        &quot;name&quot;: &quot;Dasa Iswahyudi&quot;,
+        &quot;email&quot;: &quot;bancar49@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0881 260 871&quot;,
-        &quot;is_vendor&quot;: false
+        &quot;phone&quot;: &quot;0281 5338 652&quot;,
+        &quot;is_seller&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
     &quot;token&quot;: &quot;bearer_token_for_authentication&quot;
@@ -337,12 +353,12 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 117,
-        &quot;name&quot;: &quot;Zaenab Vera Puspasari&quot;,
-        &quot;email&quot;: &quot;ayu.sihombing@example.net&quot;,
+        &quot;id&quot;: 140,
+        &quot;name&quot;: &quot;Diah Hariyah&quot;,
+        &quot;email&quot;: &quot;aurora96@example.com&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 529 6916 260&quot;,
-        &quot;is_vendor&quot;: false
+        &quot;phone&quot;: &quot;(+62) 977 1437 509&quot;,
+        &quot;is_seller&quot;: false
     }
 }</code>
  </pre>
@@ -494,6 +510,424 @@ fetch(url, {
         </p>
                 </form>
 
+        <h1 id="customer-order">Customer Order</h1>
+
+    
+
+            <h2 id="customer-order-POSTapi-v1-orders">Add order to queue</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Add order to queue for processing</p>
+
+<span id="example-requests-POSTapi-v1-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mage8-server.test/api/v1/orders" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"vendor_id\": 2,
+    \"schedule_time\": \"2050-01-01 15:00:00\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/orders"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "vendor_id": 2,
+    "schedule_time": "2050-01-01 15:00:00"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-orders">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 13,
+        &quot;customer_id&quot;: 120,
+        &quot;vendor_id&quot;: 2,
+        &quot;schedule_time&quot;: &quot;2022-08-20T17:44:14.000000Z&quot;,
+        &quot;status&quot;: &quot;active&quot;,
+        &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
+        &quot;queue_number&quot;: 1
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Vendor not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The selected vendor id is invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;vendor_id&quot;: [
+            &quot;The selected vendor id is invalid.&quot;
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, Already ordered):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You already have an order in progress for this vendor&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Ordered themselves):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You cannot order from yourself&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-orders"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-orders"></code></pre>
+</span>
+<form id="form-POSTapi-v1-orders" data-method="POST"
+      data-path="api/v1/orders"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-orders"
+                    onclick="tryItOut('POSTapi-v1-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-orders"
+                    onclick="cancelTryOut('POSTapi-v1-orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-orders" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/orders</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-orders" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-orders"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>vendor_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="vendor_id"
+               data-endpoint="POSTapi-v1-orders"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>The id of the vendor.</p>
+        </p>
+                <p>
+            <b><code>schedule_time</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="schedule_time"
+               data-endpoint="POSTapi-v1-orders"
+               value="2050-01-01 15:00:00"
+               data-component="body" hidden>
+    <br>
+<p>optional The time the order should be scheduled in UTC format and should be in the future.</p>
+        </p>
+        </form>
+
+            <h2 id="customer-order-GETapi-v1-orders">Get all orders</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get all orders for current user</p>
+
+<span id="example-requests-GETapi-v1-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mage8-server.test/api/v1/orders" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/orders"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-orders">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 11,
+            &quot;customer_id&quot;: 120,
+            &quot;vendor_id&quot;: 2,
+            &quot;schedule_time&quot;: &quot;2022-08-20T19:44:14.000000Z&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
+            &quot;queue_number&quot;: 2
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;customer_id&quot;: 120,
+            &quot;vendor_id&quot;: 2,
+            &quot;schedule_time&quot;: &quot;2022-08-20T20:44:14.000000Z&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
+            &quot;queue_number&quot;: 2
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-orders"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-orders"></code></pre>
+</span>
+<form id="form-GETapi-v1-orders" data-method="GET"
+      data-path="api/v1/orders"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-orders"
+                    onclick="tryItOut('GETapi-v1-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-orders"
+                    onclick="cancelTryOut('GETapi-v1-orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-orders" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/orders</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1-orders" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1-orders"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="customer-order-POSTapi-v1-orders--order_id--cancel">Cancel order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cancel order for specific order id</p>
+
+<span id="example-requests-POSTapi-v1-orders--order_id--cancel">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://mage8-server.test/api/v1/orders/1/cancel" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/orders/1/cancel"
+);
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-orders--order_id--cancel">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Order cancelled&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, Order not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;The selected order id is invalid.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, Order is in progress, cannot cancel):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;You cannot cancel an order that is in progress&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-orders--order_id--cancel" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-orders--order_id--cancel"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-orders--order_id--cancel"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-orders--order_id--cancel" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-orders--order_id--cancel"></code></pre>
+</span>
+<form id="form-POSTapi-v1-orders--order_id--cancel" data-method="POST"
+      data-path="api/v1/orders/{order_id}/cancel"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-orders--order_id--cancel', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-orders--order_id--cancel"
+                    onclick="tryItOut('POSTapi-v1-orders--order_id--cancel');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-orders--order_id--cancel"
+                    onclick="cancelTryOut('POSTapi-v1-orders--order_id--cancel');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-orders--order_id--cancel" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/orders/{order_id}/cancel</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-orders--order_id--cancel" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-orders--order_id--cancel"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>order_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="order_id"
+               data-endpoint="POSTapi-v1-orders--order_id--cancel"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The id of the order.</p>
+            </p>
+                    </form>
+
         <h1 id="position-provider">Position Provider</h1>
 
     
@@ -544,9 +978,9 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: -75.908247,
-        &quot;longitude&quot;: 171.547537,
-        &quot;datetime&quot;: &quot;2022-08-20T06:03:15.000000Z&quot;
+        &quot;latitude&quot;: -43.658745,
+        &quot;longitude&quot;: 120.877558,
+        &quot;datetime&quot;: null
     }
 }</code>
  </pre>
@@ -810,19 +1244,34 @@ fetch(url, {
                 <pre>
 
 <code class="language-json">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;seller_id&quot;: 1,
-        &quot;verified_by&quot;: 1,
-        &quot;category_id&quot;: 1,
-        &quot;name&quot;: &quot;Bajigur Mantap&quot;,
-        &quot;description&quot;: &quot;Jual bajigur dengan rasa yang sangat mantap&quot;,
-        &quot;is_verified&quot;: 1,
-        &quot;is_active&quot;: 1,
-        &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
-        &quot;distance&quot;: null
-    }
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;seller_id&quot;: 1,
+            &quot;verified_by&quot;: 1,
+            &quot;category_id&quot;: 1,
+            &quot;name&quot;: &quot;Bajigur Mantap&quot;,
+            &quot;description&quot;: &quot;Jual bajigur dengan rasa yang sangat mantap&quot;,
+            &quot;is_verified&quot;: 1,
+            &quot;is_active&quot;: 1,
+            &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
+            &quot;distance&quot;: null
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;seller_id&quot;: 1,
+            &quot;verified_by&quot;: 1,
+            &quot;category_id&quot;: 1,
+            &quot;name&quot;: &quot;Bajigur Mantap&quot;,
+            &quot;description&quot;: &quot;Jual bajigur dengan rasa yang sangat mantap&quot;,
+            &quot;is_verified&quot;: 1,
+            &quot;is_active&quot;: 1,
+            &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
+            &quot;distance&quot;: null
+        }
+    ]
 }</code>
  </pre>
             <blockquote>
