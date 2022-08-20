@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\UserPositionController;
+use App\Http\Controllers\Api\V1\VendorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,11 @@ Route::group(['prefix' => '/v1'], function () {
         Route::post('/position/update', [UserController::class, 'updatePosition']);
     });
 
-    Route::group(['prefix' => '/position', 'middleware' => 'auth:sanctum'], function () {
+    Route::group(['prefix' => '/positions', 'middleware' => 'auth:sanctum'], function () {
         Route::get('/{user}', [UserPositionController::class, 'getUserPosition']);
+    });
+
+    Route::group(['prefix' => '/vendors', 'middleware' => 'auth:sanctum'], function () {
+        Route::get('/nearest', [VendorController::class, 'nearest']);
     });
 });

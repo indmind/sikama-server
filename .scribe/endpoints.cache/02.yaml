@@ -23,15 +23,15 @@ endpoints:
         name: latitude
         description: 'optional The latitude of the user.'
         required: false
-        example: -6.2145
-        type: number
+        example: '-6.2145'
+        type: string
         custom: []
       longitude:
         name: longitude
         description: 'optional The longitude of the user.'
         required: false
-        example: 106.8451
-        type: number
+        example: '106.8451'
+        type: string
         custom: []
     responses:
       -

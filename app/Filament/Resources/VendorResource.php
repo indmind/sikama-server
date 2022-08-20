@@ -96,6 +96,20 @@ class VendorResource extends Resource
                     ->color('danger')
                     ->icon('heroicon-o-x')
                     ->hidden(fn (Vendor $record) => ! $record->is_verified),
+
+                // for debug only
+                Tables\Actions\Action::make('open')
+                    ->action(fn (Vendor $record) => $record->update(['is_active' => true]))
+                    ->requiresConfirmation()
+                    ->color('success')
+                    ->icon('heroicon-o-check')
+                    ->hidden(fn (Vendor $record) => $record->is_active),
+                Tables\Actions\Action::make('close')
+                    ->action(fn (Vendor $record) => $record->update(['is_active' => false]))
+                    ->requiresConfirmation()
+                    ->color('danger')
+                    ->icon('heroicon-o-x')
+                    ->hidden(fn (Vendor $record) => ! $record->is_active),
             ])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),

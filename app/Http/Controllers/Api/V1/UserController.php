@@ -19,8 +19,8 @@ class UserController extends Controller
      *
      * This will update the current user position, set to null to remove.
      *
-     * @bodyParam latitude double optional The latitude of the user. Example: -6.2145
-     * @bodyParam longitude double optional The longitude of the user. Example: 106.8451
+     * @bodyParam latitude string optional The latitude of the user. Example: -6.2145
+     * @bodyParam longitude string optional The longitude of the user. Example: 106.8451
      *
      * @response {
      *  "message": "User position updated"

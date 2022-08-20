@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'image_url' => $this->image_url,
             'phone' => $this->phone,
             'is_vendor' => $this->vendor()->count() > 0,
+            'position' => new UserPositionResource($this->whenLoaded('position')),
         ];
     }
 }

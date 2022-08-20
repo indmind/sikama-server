@@ -56,4 +56,38 @@ class Vendor extends Model
         $this->verified_by = null;
         $this->save();
     }
+
+    public function getDistanceFrom($latitude, $longitude)
+    {
+        return $this->seller->position?->getDistanceFromLatLong($latitude, $longitude) ?? -1;
+    }
+
+    /**
+     * Get nearest vendors from provided latitude and longitude
+     *
+     * returns list of
+     * [
+     *  'vendor' => Vendor,
+     *  'distance' => distance in meters
+     * ]
+     */
+    public static function getNearestVendors($latitude, $longitude)
+    {
+        $vendors = self::where('is_active', true)->get();
+        $distanceTreshold = config('distance_treshold', 3); // in kilometers
+
+        $nearests = collect();
+
+        foreach ($vendors as $vendor) {
+            $distance = $vendor->getDistanceFrom($latitude, $longitude);
+
+            if ($distance != -1 && $distance <= $distanceTreshold) {
+                // add vendor to nearest vendors with distance
+                $vendor->distance = $distance;
+                $nearests->push($vendor);
+            }
+        }
+
+        return $nearests->sortBy('distance');
+    }
 }

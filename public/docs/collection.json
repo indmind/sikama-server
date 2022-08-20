@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "075ad30a-f686-4894-9c7d-257b53810bca",
+        "_postman_id": "efa8148a-7b0d-4568-b2d7-21b323512872",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":94,\"name\":\"Darijan Irawan\",\"email\":\"ismail.suryono@example.com\",\"image_url\":null,\"phone\":\"0361 3715 930\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":106,\"name\":\"Galang Iswahyudi\",\"email\":\"dagel.adriansyah@example.net\",\"image_url\":null,\"phone\":\"0852 6096 644\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":95,\"name\":\"Gandi Santoso M.Kom.\",\"email\":\"cpradipta@example.org\",\"image_url\":null,\"phone\":\"(+62) 451 1916 6631\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":107,\"name\":\"Tania Pratiwi\",\"email\":\"kamaria35@example.net\",\"image_url\":null,\"phone\":\"(+62) 883 2142 411\",\"is_vendor\":false}}",
                             "name": "0"
                         }
                     ]
@@ -132,9 +132,9 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/position\/:user_id",
+                            "path": "api\/v1\/positions\/:user_id",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/position\/:user_id",
+                            "raw": "{{baseUrl}}\/api\/v1\/positions\/:user_id",
                             "variable": [
                                 {
                                     "id": "user_id",
@@ -162,7 +162,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":68.070928,\"longitude\":-104.033671,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":67.959788,\"longitude\":-32.316075,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]
@@ -195,7 +195,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"latitude\":-6.2145,\"longitude\":106.8451}"
+                            "raw": "{\"latitude\":\"-6.2145\",\"longitude\":\"106.8451\"}"
                         },
                         "description": "This will update the current user position, set to null to remove."
                     },
@@ -211,6 +211,63 @@
                             "code": 200,
                             "body": "{\n \"message\": \"User position cleared\"\n}",
                             "name": "called with empty latitude and longitude"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Vendor for Client",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get nearest vendors",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vendors\/nearest",
+                            "query": [
+                                {
+                                    "key": "latitude",
+                                    "value": "-6.2145",
+                                    "description": "optional The latitude of the user, will use current user location when null.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "106.8451",
+                                    "description": "optional The longitude of the user.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/vendors\/nearest?latitude=-6.2145&longitude=106.8451"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get nearest vendors based on current user position or provided position"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}}",
+                            "name": "0"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n     \"message\": \"Please provide latitude and longitude\"\n}",
+                            "name": "called with empty latitude and longitude and no user position"
                         }
                     ]
                 }

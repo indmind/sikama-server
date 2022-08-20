@@ -42,7 +42,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":94,"name":"Darijan Irawan","email":"ismail.suryono@example.com","image_url":null,"phone":"0361 3715 930","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
+        content: '{"data":{"id":106,"name":"Galang Iswahyudi","email":"dagel.adriansyah@example.net","image_url":null,"phone":"0852 6096 644","is_vendor":false},"message":"Login Success","token":"bearer_token_for_authentication"}'
         headers: []
         description: '0'
     responseFields: []
@@ -65,7 +65,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":95,"name":"Gandi Santoso M.Kom.","email":"cpradipta@example.org","image_url":null,"phone":"(+62) 451 1916 6631","is_vendor":false}}'
+        content: '{"data":{"id":107,"name":"Tania Pratiwi","email":"kamaria35@example.net","image_url":null,"phone":"(+62) 883 2142 411","is_vendor":false}}'
         headers: []
         description: '0'
     responseFields: []

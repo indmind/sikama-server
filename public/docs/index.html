@@ -90,8 +90,8 @@
                     <a href="#position-provider">Position Provider</a>
                 </li>
                                     <ul id="tocify-subheader-position-provider" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="position-provider-GETapi-v1-position--user_id-">
-                        <a href="#position-provider-GETapi-v1-position--user_id-">Get user position</a>
+                                                    <li class="tocify-item level-2" data-unique="position-provider-GETapi-v1-positions--user_id-">
+                        <a href="#position-provider-GETapi-v1-positions--user_id-">Get user position</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -102,6 +102,16 @@
                                     <ul id="tocify-subheader-user-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1-user-position-update">
                         <a href="#user-management-POSTapi-v1-user-position-update">Update user position</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="vendor-for-client">
+                    <a href="#vendor-for-client">Vendor for Client</a>
+                </li>
+                                    <ul id="tocify-subheader-vendor-for-client" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="vendor-for-client-GETapi-v1-vendors-nearest">
+                        <a href="#vendor-for-client-GETapi-v1-vendors-nearest">Get nearest vendors</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -132,7 +142,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://mage8-server.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve the token by calling Google SignIn endpoint with <strong>debug_token</strong> as access_token value.</p>
 
@@ -194,11 +204,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 94,
-        &quot;name&quot;: &quot;Darijan Irawan&quot;,
-        &quot;email&quot;: &quot;ismail.suryono@example.com&quot;,
+        &quot;id&quot;: 106,
+        &quot;name&quot;: &quot;Galang Iswahyudi&quot;,
+        &quot;email&quot;: &quot;dagel.adriansyah@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0361 3715 930&quot;,
+        &quot;phone&quot;: &quot;0852 6096 644&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -324,11 +334,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 95,
-        &quot;name&quot;: &quot;Gandi Santoso M.Kom.&quot;,
-        &quot;email&quot;: &quot;cpradipta@example.org&quot;,
+        &quot;id&quot;: 107,
+        &quot;name&quot;: &quot;Tania Pratiwi&quot;,
+        &quot;email&quot;: &quot;kamaria35@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 451 1916 6631&quot;,
+        &quot;phone&quot;: &quot;(+62) 883 2142 411&quot;,
         &quot;is_vendor&quot;: false
     }
 }</code>
@@ -485,7 +495,7 @@ fetch(url, {
 
     
 
-            <h2 id="position-provider-GETapi-v1-position--user_id-">Get user position</h2>
+            <h2 id="position-provider-GETapi-v1-positions--user_id-">Get user position</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -493,13 +503,13 @@ fetch(url, {
 
 <p>Get user position based on user id</p>
 
-<span id="example-requests-GETapi-v1-position--user_id-">
+<span id="example-requests-GETapi-v1-positions--user_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://mage8-server.test/api/v1/position/1" \
+    --get "http://mage8-server.test/api/v1/positions/1" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -507,7 +517,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://mage8-server.test/api/v1/position/1"
+    "http://mage8-server.test/api/v1/positions/1"
 );
 
 const headers = {
@@ -523,7 +533,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-position--user_id-">
+<span id="example-responses-GETapi-v1-positions--user_id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -531,58 +541,58 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: 68.070928,
-        &quot;longitude&quot;: -104.033671,
+        &quot;latitude&quot;: 67.959788,
+        &quot;longitude&quot;: -32.316075,
         &quot;datetime&quot;: null
     }
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-position--user_id-" hidden>
+<span id="execution-results-GETapi-v1-positions--user_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-position--user_id-"></span>:
+                id="execution-response-status-GETapi-v1-positions--user_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-position--user_id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-positions--user_id-"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-position--user_id-" hidden>
+<span id="execution-error-GETapi-v1-positions--user_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-position--user_id-"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-positions--user_id-"></code></pre>
 </span>
-<form id="form-GETapi-v1-position--user_id-" data-method="GET"
-      data-path="api/v1/position/{user_id}"
+<form id="form-GETapi-v1-positions--user_id-" data-method="GET"
+      data-path="api/v1/positions/{user_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-position--user_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-positions--user_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-position--user_id-"
-                    onclick="tryItOut('GETapi-v1-position--user_id-');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-positions--user_id-"
+                    onclick="tryItOut('GETapi-v1-positions--user_id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-position--user_id-"
-                    onclick="cancelTryOut('GETapi-v1-position--user_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-positions--user_id-"
+                    onclick="cancelTryOut('GETapi-v1-positions--user_id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-position--user_id-" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-positions--user_id-" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/position/{user_id}</code></b>
+            <b><code>api/v1/positions/{user_id}</code></b>
         </p>
                 <p>
-            <label id="auth-GETapi-v1-position--user_id-" hidden>Authorization header:
+            <label id="auth-GETapi-v1-positions--user_id-" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="GETapi-v1-position--user_id-"
+                                                                data-endpoint="GETapi-v1-positions--user_id-"
                                                                 data-component="header"></label>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
@@ -590,7 +600,7 @@ fetch(url, {
                 <b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="user_id"
-               data-endpoint="GETapi-v1-position--user_id-"
+               data-endpoint="GETapi-v1-positions--user_id-"
                value="1"
                data-component="url" hidden>
     <br>
@@ -621,8 +631,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"latitude\": -6.2145,
-    \"longitude\": 106.8451
+    \"latitude\": \"-6.2145\",
+    \"longitude\": \"106.8451\"
 }"
 </code></pre></div>
 
@@ -639,8 +649,8 @@ const headers = {
 };
 
 let body = {
-    "latitude": -6.2145,
-    "longitude": 106.8451
+    "latitude": "-6.2145",
+    "longitude": "106.8451"
 };
 
 fetch(url, {
@@ -720,8 +730,8 @@ fetch(url, {
         </p>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>latitude</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
-                <input type="number"
+            <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
                name="latitude"
                data-endpoint="POSTapi-v1-user-position-update"
                value="-6.2145"
@@ -730,8 +740,8 @@ fetch(url, {
 <p>optional The latitude of the user.</p>
         </p>
                 <p>
-            <b><code>longitude</code></b>&nbsp;&nbsp;<small>number</small>     <i>optional</i> &nbsp;
-                <input type="number"
+            <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
                name="longitude"
                data-endpoint="POSTapi-v1-user-position-update"
                value="106.8451"
@@ -740,6 +750,157 @@ fetch(url, {
 <p>optional The longitude of the user.</p>
         </p>
         </form>
+
+        <h1 id="vendor-for-client">Vendor for Client</h1>
+
+    
+
+            <h2 id="vendor-for-client-GETapi-v1-vendors-nearest">Get nearest vendors</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get nearest vendors based on current user position or provided position</p>
+
+<span id="example-requests-GETapi-v1-vendors-nearest">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mage8-server.test/api/v1/vendors/nearest?latitude=-6.2145&amp;longitude=106.8451" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/vendors/nearest"
+);
+
+const params = {
+    "latitude": "-6.2145",
+    "longitude": "106.8451",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-vendors-nearest">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;seller_id&quot;: 1,
+        &quot;verified_by&quot;: 1,
+        &quot;category_id&quot;: 1,
+        &quot;name&quot;: &quot;Bajigur Mantap&quot;,
+        &quot;description&quot;: &quot;Jual bajigur dengan rasa yang sangat mantap&quot;,
+        &quot;is_verified&quot;: 1,
+        &quot;is_active&quot;: 1,
+        &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
+        &quot;distance&quot;: null
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, called with empty latitude and longitude and no user position):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Please provide latitude and longitude&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-vendors-nearest" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-vendors-nearest"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-vendors-nearest"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-vendors-nearest" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-vendors-nearest"></code></pre>
+</span>
+<form id="form-GETapi-v1-vendors-nearest" data-method="GET"
+      data-path="api/v1/vendors/nearest"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-vendors-nearest', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-vendors-nearest"
+                    onclick="tryItOut('GETapi-v1-vendors-nearest');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-vendors-nearest"
+                    onclick="cancelTryOut('GETapi-v1-vendors-nearest');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-vendors-nearest" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/vendors/nearest</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1-vendors-nearest" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1-vendors-nearest"
+                                                                data-component="header"></label>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="GETapi-v1-vendors-nearest"
+               value="-6.2145"
+               data-component="query" hidden>
+    <br>
+<p>optional The latitude of the user, will use current user location when null.</p>
+            </p>
+                    <p>
+                <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="GETapi-v1-vendors-nearest"
+               value="106.8451"
+               data-component="query" hidden>
+    <br>
+<p>optional The longitude of the user.</p>
+            </p>
+                </form>
 
     
 
