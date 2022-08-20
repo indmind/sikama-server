@@ -3,7 +3,7 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - POST
+      - GET
     uri: 'api/v1/position/{user_id}'
     metadata:
       title: 'Get user position'
@@ -27,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"latitude":-84.042851,"longitude":-146.201546,"datetime":null}}'
+        content: '{"data":{"latitude":68.070928,"longitude":-104.033671,"datetime":null}}'
         headers: []
         description: '0'
     responseFields: []

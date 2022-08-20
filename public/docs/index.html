@@ -90,8 +90,8 @@
                     <a href="#position-provider">Position Provider</a>
                 </li>
                                     <ul id="tocify-subheader-position-provider" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="position-provider-POSTapi-v1-position--user_id-">
-                        <a href="#position-provider-POSTapi-v1-position--user_id-">Get user position</a>
+                                                    <li class="tocify-item level-2" data-unique="position-provider-GETapi-v1-position--user_id-">
+                        <a href="#position-provider-GETapi-v1-position--user_id-">Get user position</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -115,7 +115,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 16 2022</li>
+        <li>Last updated: August 20 2022</li>
     </ul>
 </div>
 
@@ -194,11 +194,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 92,
-        &quot;name&quot;: &quot;Rini Hafshah Astuti&quot;,
-        &quot;email&quot;: &quot;pratiwi.cici@example.net&quot;,
+        &quot;id&quot;: 94,
+        &quot;name&quot;: &quot;Darijan Irawan&quot;,
+        &quot;email&quot;: &quot;ismail.suryono@example.com&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0626 2704 3520&quot;,
+        &quot;phone&quot;: &quot;0361 3715 930&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -324,11 +324,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 93,
-        &quot;name&quot;: &quot;Diah Ika Usada&quot;,
-        &quot;email&quot;: &quot;bbudiyanto@example.org&quot;,
+        &quot;id&quot;: 95,
+        &quot;name&quot;: &quot;Gandi Santoso M.Kom.&quot;,
+        &quot;email&quot;: &quot;cpradipta@example.org&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 465 3058 8545&quot;,
+        &quot;phone&quot;: &quot;(+62) 451 1916 6631&quot;,
         &quot;is_vendor&quot;: false
     }
 }</code>
@@ -485,7 +485,7 @@ fetch(url, {
 
     
 
-            <h2 id="position-provider-POSTapi-v1-position--user_id-">Get user position</h2>
+            <h2 id="position-provider-GETapi-v1-position--user_id-">Get user position</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -493,13 +493,13 @@ fetch(url, {
 
 <p>Get user position based on user id</p>
 
-<span id="example-requests-POSTapi-v1-position--user_id-">
+<span id="example-requests-GETapi-v1-position--user_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://mage8-server.test/api/v1/position/1" \
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mage8-server.test/api/v1/position/1" \
     --header "Authorization: Bearer {token}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -517,13 +517,13 @@ const headers = {
 };
 
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-v1-position--user_id-">
+<span id="example-responses-GETapi-v1-position--user_id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -531,58 +531,58 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: -84.042851,
-        &quot;longitude&quot;: -146.201546,
+        &quot;latitude&quot;: 68.070928,
+        &quot;longitude&quot;: -104.033671,
         &quot;datetime&quot;: null
     }
 }</code>
  </pre>
     </span>
-<span id="execution-results-POSTapi-v1-position--user_id-" hidden>
+<span id="execution-results-GETapi-v1-position--user_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-position--user_id-"></span>:
+                id="execution-response-status-GETapi-v1-position--user_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-position--user_id-"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-position--user_id-"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-position--user_id-" hidden>
+<span id="execution-error-GETapi-v1-position--user_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-position--user_id-"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-position--user_id-"></code></pre>
 </span>
-<form id="form-POSTapi-v1-position--user_id-" data-method="POST"
+<form id="form-GETapi-v1-position--user_id-" data-method="GET"
       data-path="api/v1/position/{user_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-position--user_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-position--user_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-position--user_id-"
-                    onclick="tryItOut('POSTapi-v1-position--user_id-');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-position--user_id-"
+                    onclick="tryItOut('GETapi-v1-position--user_id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-position--user_id-"
-                    onclick="cancelTryOut('POSTapi-v1-position--user_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-position--user_id-"
+                    onclick="cancelTryOut('GETapi-v1-position--user_id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-position--user_id-" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-position--user_id-" hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
+            <small class="badge badge-green">GET</small>
             <b><code>api/v1/position/{user_id}</code></b>
         </p>
                 <p>
-            <label id="auth-POSTapi-v1-position--user_id-" hidden>Authorization header:
+            <label id="auth-GETapi-v1-position--user_id-" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1-position--user_id-"
+                                                                data-endpoint="GETapi-v1-position--user_id-"
                                                                 data-component="header"></label>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
@@ -590,7 +590,7 @@ fetch(url, {
                 <b><code>user_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="user_id"
-               data-endpoint="POSTapi-v1-position--user_id-"
+               data-endpoint="GETapi-v1-position--user_id-"
                value="1"
                data-component="url" hidden>
     <br>

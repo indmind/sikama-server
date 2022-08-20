@@ -28,6 +28,6 @@ Route::group(['prefix' => '/v1'], function () {
     });
 
     Route::group(['prefix' => '/position', 'middleware' => 'auth:sanctum'], function () {
-        Route::post('/{user}', [UserPositionController::class, 'getUserPosition']);
+        Route::get('/{user}', [UserPositionController::class, 'getUserPosition']);
     });
 });

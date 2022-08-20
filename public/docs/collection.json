@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "6fd0121f-42df-4370-9b0d-140f152e0939",
+        "_postman_id": "075ad30a-f686-4894-9c7d-257b53810bca",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":92,\"name\":\"Rini Hafshah Astuti\",\"email\":\"pratiwi.cici@example.net\",\"image_url\":null,\"phone\":\"0626 2704 3520\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":94,\"name\":\"Darijan Irawan\",\"email\":\"ismail.suryono@example.com\",\"image_url\":null,\"phone\":\"0361 3715 930\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":93,\"name\":\"Diah Ika Usada\",\"email\":\"bbudiyanto@example.org\",\"image_url\":null,\"phone\":\"(+62) 465 3058 8545\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":95,\"name\":\"Gandi Santoso M.Kom.\",\"email\":\"cpradipta@example.org\",\"image_url\":null,\"phone\":\"(+62) 451 1916 6631\",\"is_vendor\":false}}",
                             "name": "0"
                         }
                     ]
@@ -144,7 +144,7 @@
                                 }
                             ]
                         },
-                        "method": "POST",
+                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -162,7 +162,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":-84.042851,\"longitude\":-146.201546,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":68.070928,\"longitude\":-104.033671,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]

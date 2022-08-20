@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 92
-                    name: 'Rini Hafshah Astuti'
-                    email: pratiwi.cici@example.net
+                    id: 94
+                    name: 'Darijan Irawan'
+                    email: ismail.suryono@example.com
                     image_url: null
-                    phone: '0626 2704 3520'
+                    phone: '0361 3715 930'
                     is_vendor: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 92
-                      name: 'Rini Hafshah Astuti'
-                      email: pratiwi.cici@example.net
+                      id: 94
+                      name: 'Darijan Irawan'
+                      email: ismail.suryono@example.com
                       image_url: null
-                      phone: '0626 2704 3520'
+                      phone: '0361 3715 930'
                       is_vendor: false
                   message:
                     type: string
@@ -119,21 +119,21 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 93
-                    name: 'Diah Ika Usada'
-                    email: bbudiyanto@example.org
+                    id: 95
+                    name: 'Gandi Santoso M.Kom.'
+                    email: cpradipta@example.org
                     image_url: null
-                    phone: '(+62) 465 3058 8545'
+                    phone: '(+62) 451 1916 6631'
                     is_vendor: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 93
-                      name: 'Diah Ika Usada'
-                      email: bbudiyanto@example.org
+                      id: 95
+                      name: 'Gandi Santoso M.Kom.'
+                      email: cpradipta@example.org
                       image_url: null
-                      phone: '(+62) 465 3058 8545'
+                      phone: '(+62) 451 1916 6631'
                       is_vendor: false
       tags:
         - Authentication
@@ -179,7 +179,7 @@ paths:
       tags:
         - Authentication
   '/api/v1/position/{user_id}':
-    post:
+    get:
       summary: 'Get user position'
       description: 'Get user position based on user id'
       parameters:
@@ -213,15 +213,15 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: -84.042851
-                    longitude: -146.201546
+                    latitude: 68.070928
+                    longitude: -104.033671
                     datetime: null
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: -84.042851
-                      longitude: -146.201546
+                      latitude: 68.070928
+                      longitude: -104.033671
                       datetime: null
       tags:
         - 'Position Provider'
