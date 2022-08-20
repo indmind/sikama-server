@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 139
-                    name: 'Dasa Iswahyudi'
-                    email: bancar49@example.net
+                    id: 141
+                    name: 'Devi Rahayu'
+                    email: adika.gunawan@example.com
                     image_url: null
-                    phone: '0281 5338 652'
+                    phone: '0450 3846 070'
                     is_seller: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 139
-                      name: 'Dasa Iswahyudi'
-                      email: bancar49@example.net
+                      id: 141
+                      name: 'Devi Rahayu'
+                      email: adika.gunawan@example.com
                       image_url: null
-                      phone: '0281 5338 652'
+                      phone: '0450 3846 070'
                       is_seller: false
                   message:
                     type: string
@@ -119,21 +119,21 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 140
-                    name: 'Diah Hariyah'
-                    email: aurora96@example.com
+                    id: 142
+                    name: 'Baktiono Hardi Permadi M.TI.'
+                    email: yuliarti.hasan@example.net
                     image_url: null
-                    phone: '(+62) 977 1437 509'
+                    phone: '0374 4578 4302'
                     is_seller: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 140
-                      name: 'Diah Hariyah'
-                      email: aurora96@example.com
+                      id: 142
+                      name: 'Baktiono Hardi Permadi M.TI.'
+                      email: yuliarti.hasan@example.net
                       image_url: null
-                      phone: '(+62) 977 1437 509'
+                      phone: '0374 4578 4302'
                       is_seller: false
       tags:
         - Authentication
@@ -213,24 +213,24 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 13
+                    id: 17
                     customer_id: 120
                     vendor_id: 2
-                    schedule_time: '2022-08-20T17:44:14.000000Z'
+                    schedule_time: '2022-08-21T04:50:26.000000Z'
                     status: active
-                    created_at: '2022-08-20T07:44:14.000000Z'
-                    queue_number: 1
+                    created_at: '2022-08-20T07:50:26.000000Z'
+                    queue_number: 2
                 properties:
                   data:
                     type: object
                     example:
-                      id: 13
+                      id: 17
                       customer_id: 120
                       vendor_id: 2
-                      schedule_time: '2022-08-20T17:44:14.000000Z'
+                      schedule_time: '2022-08-21T04:50:26.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:44:14.000000Z'
-                      queue_number: 1
+                      created_at: '2022-08-20T07:50:26.000000Z'
+                      queue_number: 2
         404:
           description: 'Vendor not found'
           content:
@@ -329,41 +329,41 @@ paths:
                 example:
                   data:
                     -
-                      id: 11
+                      id: 15
                       customer_id: 120
                       vendor_id: 2
-                      schedule_time: '2022-08-20T19:44:14.000000Z'
+                      schedule_time: '2022-08-21T04:50:26.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:44:14.000000Z'
+                      created_at: '2022-08-20T07:50:26.000000Z'
                       queue_number: 2
                     -
-                      id: 12
+                      id: 16
                       customer_id: 120
-                      vendor_id: 2
-                      schedule_time: '2022-08-20T20:44:14.000000Z'
+                      vendor_id: 1
+                      schedule_time: '2022-08-20T23:50:26.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:44:14.000000Z'
-                      queue_number: 2
+                      created_at: '2022-08-20T07:50:26.000000Z'
+                      queue_number: 1
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 11
+                        id: 15
                         customer_id: 120
                         vendor_id: 2
-                        schedule_time: '2022-08-20T19:44:14.000000Z'
+                        schedule_time: '2022-08-21T04:50:26.000000Z'
                         status: active
-                        created_at: '2022-08-20T07:44:14.000000Z'
+                        created_at: '2022-08-20T07:50:26.000000Z'
                         queue_number: 2
                       -
-                        id: 12
+                        id: 16
                         customer_id: 120
-                        vendor_id: 2
-                        schedule_time: '2022-08-20T20:44:14.000000Z'
+                        vendor_id: 1
+                        schedule_time: '2022-08-20T23:50:26.000000Z'
                         status: active
-                        created_at: '2022-08-20T07:44:14.000000Z'
-                        queue_number: 2
+                        created_at: '2022-08-20T07:50:26.000000Z'
+                        queue_number: 1
                     items:
                       type: object
       tags:
@@ -477,15 +477,15 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: -43.658745
-                    longitude: 120.877558
+                    latitude: 46.27598
+                    longitude: 97.415746
                     datetime: null
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: -43.658745
-                      longitude: 120.877558
+                      latitude: 46.27598
+                      longitude: 97.415746
                       datetime: null
       tags:
         - 'Position Provider'
@@ -621,6 +621,16 @@ paths:
                       created_at: '2022-08-12T08:00:39.000000Z'
                       updated_at: '2022-08-20T04:59:58.000000Z'
                       distance: null
+                      images:
+                        -
+                          id: 1
+                          image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                        -
+                          id: 2
+                          image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                        -
+                          id: 3
+                          image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
                     -
                       id: 1
                       seller_id: 1
@@ -633,6 +643,16 @@ paths:
                       created_at: '2022-08-12T08:00:39.000000Z'
                       updated_at: '2022-08-20T04:59:58.000000Z'
                       distance: null
+                      images:
+                        -
+                          id: 1
+                          image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                        -
+                          id: 2
+                          image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                        -
+                          id: 3
+                          image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
                 properties:
                   data:
                     type: array
@@ -649,6 +669,16 @@ paths:
                         created_at: '2022-08-12T08:00:39.000000Z'
                         updated_at: '2022-08-20T04:59:58.000000Z'
                         distance: null
+                        images:
+                          -
+                            id: 1
+                            image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                          -
+                            id: 2
+                            image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                          -
+                            id: 3
+                            image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
                       -
                         id: 1
                         seller_id: 1
@@ -661,6 +691,16 @@ paths:
                         created_at: '2022-08-12T08:00:39.000000Z'
                         updated_at: '2022-08-20T04:59:58.000000Z'
                         distance: null
+                        images:
+                          -
+                            id: 1
+                            image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                          -
+                            id: 2
+                            image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                          -
+                            id: 3
+                            image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
                     items:
                       type: object
         400:
@@ -743,6 +783,16 @@ paths:
                     created_at: '2022-08-12T08:00:39.000000Z'
                     updated_at: '2022-08-20T04:59:58.000000Z'
                     distance: null
+                    images:
+                      -
+                        id: 1
+                        image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                      -
+                        id: 2
+                        image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                      -
+                        id: 3
+                        image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
                 properties:
                   data:
                     type: object
@@ -758,6 +808,16 @@ paths:
                       created_at: '2022-08-12T08:00:39.000000Z'
                       updated_at: '2022-08-20T04:59:58.000000Z'
                       distance: null
+                      images:
+                        -
+                          id: 1
+                          image_url: 'http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png'
+                        -
+                          id: 2
+                          image_url: 'http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png'
+                        -
+                          id: 3
+                          image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
         4004:
           description: 'called with invalid vendor id'
           content:

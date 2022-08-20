@@ -161,7 +161,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://mage8-server.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {token}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve the token by calling Google SignIn endpoint with <strong>debug_token</strong> as access_token value.</p>
 
@@ -223,11 +223,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 139,
-        &quot;name&quot;: &quot;Dasa Iswahyudi&quot;,
-        &quot;email&quot;: &quot;bancar49@example.net&quot;,
+        &quot;id&quot;: 141,
+        &quot;name&quot;: &quot;Devi Rahayu&quot;,
+        &quot;email&quot;: &quot;adika.gunawan@example.com&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0281 5338 652&quot;,
+        &quot;phone&quot;: &quot;0450 3846 070&quot;,
         &quot;is_seller&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -353,11 +353,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 140,
-        &quot;name&quot;: &quot;Diah Hariyah&quot;,
-        &quot;email&quot;: &quot;aurora96@example.com&quot;,
+        &quot;id&quot;: 142,
+        &quot;name&quot;: &quot;Baktiono Hardi Permadi M.TI.&quot;,
+        &quot;email&quot;: &quot;yuliarti.hasan@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 977 1437 509&quot;,
+        &quot;phone&quot;: &quot;0374 4578 4302&quot;,
         &quot;is_seller&quot;: false
     }
 }</code>
@@ -571,13 +571,13 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 13,
+        &quot;id&quot;: 17,
         &quot;customer_id&quot;: 120,
         &quot;vendor_id&quot;: 2,
-        &quot;schedule_time&quot;: &quot;2022-08-20T17:44:14.000000Z&quot;,
+        &quot;schedule_time&quot;: &quot;2022-08-21T04:50:26.000000Z&quot;,
         &quot;status&quot;: &quot;active&quot;,
-        &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
-        &quot;queue_number&quot;: 1
+        &quot;created_at&quot;: &quot;2022-08-20T07:50:26.000000Z&quot;,
+        &quot;queue_number&quot;: 2
     }
 }</code>
  </pre>
@@ -731,22 +731,22 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 11,
+            &quot;id&quot;: 15,
             &quot;customer_id&quot;: 120,
             &quot;vendor_id&quot;: 2,
-            &quot;schedule_time&quot;: &quot;2022-08-20T19:44:14.000000Z&quot;,
+            &quot;schedule_time&quot;: &quot;2022-08-21T04:50:26.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2022-08-20T07:50:26.000000Z&quot;,
             &quot;queue_number&quot;: 2
         },
         {
-            &quot;id&quot;: 12,
+            &quot;id&quot;: 16,
             &quot;customer_id&quot;: 120,
-            &quot;vendor_id&quot;: 2,
-            &quot;schedule_time&quot;: &quot;2022-08-20T20:44:14.000000Z&quot;,
+            &quot;vendor_id&quot;: 1,
+            &quot;schedule_time&quot;: &quot;2022-08-20T23:50:26.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2022-08-20T07:44:14.000000Z&quot;,
-            &quot;queue_number&quot;: 2
+            &quot;created_at&quot;: &quot;2022-08-20T07:50:26.000000Z&quot;,
+            &quot;queue_number&quot;: 1
         }
     ]
 }</code>
@@ -978,8 +978,8 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: -43.658745,
-        &quot;longitude&quot;: 120.877558,
+        &quot;latitude&quot;: 46.27598,
+        &quot;longitude&quot;: 97.415746,
         &quot;datetime&quot;: null
     }
 }</code>
@@ -1256,7 +1256,21 @@ fetch(url, {
             &quot;is_active&quot;: 1,
             &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
             &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
-            &quot;distance&quot;: null
+            &quot;distance&quot;: null,
+            &quot;images&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png&quot;
+                }
+            ]
         },
         {
             &quot;id&quot;: 1,
@@ -1269,7 +1283,21 @@ fetch(url, {
             &quot;is_active&quot;: 1,
             &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
             &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
-            &quot;distance&quot;: null
+            &quot;distance&quot;: null,
+            &quot;images&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png&quot;
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png&quot;
+                }
+            ]
         }
     ]
 }</code>
@@ -1417,7 +1445,21 @@ fetch(url, {
         &quot;is_active&quot;: 1,
         &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
-        &quot;distance&quot;: null
+        &quot;distance&quot;: null,
+        &quot;images&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;image_url&quot;: &quot;http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png&quot;
+            }
+        ]
     }
 }</code>
  </pre>

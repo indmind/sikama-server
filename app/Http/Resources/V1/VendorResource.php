@@ -28,6 +28,7 @@ class VendorResource extends JsonResource
             'distance' => $this->distance,
             // when loaded
             'seller' => new UserResource($this->whenLoaded('seller')),
+            'images' => VendorImagesResource::collection($this->images),
         ];
     }
 }

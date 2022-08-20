@@ -29,7 +29,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"latitude":-43.658745,"longitude":120.877558,"datetime":null}}'
+        content: '{"data":{"latitude":46.27598,"longitude":97.415746,"datetime":null}}'
         headers: []
         description: '0'
     responseFields: []

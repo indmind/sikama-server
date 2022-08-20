@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "b3107add-de92-4a13-8ec4-f5776f49e5a1",
+        "_postman_id": "cf7adac1-02ff-4f7f-8e84-3bc455a19cfc",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":139,\"name\":\"Dasa Iswahyudi\",\"email\":\"bancar49@example.net\",\"image_url\":null,\"phone\":\"0281 5338 652\",\"is_seller\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":141,\"name\":\"Devi Rahayu\",\"email\":\"adika.gunawan@example.com\",\"image_url\":null,\"phone\":\"0450 3846 070\",\"is_seller\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":140,\"name\":\"Diah Hariyah\",\"email\":\"aurora96@example.com\",\"image_url\":null,\"phone\":\"(+62) 977 1437 509\",\"is_seller\":false}}",
+                            "body": "{\"data\":{\"id\":142,\"name\":\"Baktiono Hardi Permadi M.TI.\",\"email\":\"yuliarti.hasan@example.net\",\"image_url\":null,\"phone\":\"0374 4578 4302\",\"is_seller\":false}}",
                             "name": "0"
                         }
                     ]
@@ -157,7 +157,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":13,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T17:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":1}}",
+                            "body": "{\"data\":{\"id\":17,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-21T04:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":2}}",
                             "name": "0"
                         },
                         {
@@ -207,7 +207,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":11,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T19:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":2},{\"id\":12,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-20T20:44:14.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:44:14.000000Z\",\"queue_number\":2}]}",
+                            "body": "{\"data\":[{\"id\":15,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-21T04:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":2},{\"id\":16,\"customer_id\":120,\"vendor_id\":1,\"schedule_time\":\"2022-08-20T23:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":1}]}",
                             "name": "0"
                         }
                     ]
@@ -305,7 +305,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":-43.658745,\"longitude\":120.877558,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":46.27598,\"longitude\":97.415746,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]
@@ -403,7 +403,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null},{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}]}",
+                            "body": "{\"data\":[{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null,\"images\":[{\"id\":1,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png\"},{\"id\":2,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png\"},{\"id\":3,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png\"}]},{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null,\"images\":[{\"id\":1,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png\"},{\"id\":2,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png\"},{\"id\":3,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png\"}]}]}",
                             "name": "0"
                         },
                         {
@@ -462,7 +462,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}}",
+                            "body": "{\"data\":{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null,\"images\":[{\"id\":1,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png\"},{\"id\":2,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png\"},{\"id\":3,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/images\\\/vendors\\\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png\"}]}}",
                             "name": "0"
                         },
                         {

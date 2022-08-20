@@ -36,7 +36,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null},{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null}]}'
+        content: '{"data":[{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null,"images":[{"id":1,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png"},{"id":2,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png"},{"id":3,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png"}]},{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null,"images":[{"id":1,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png"},{"id":2,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png"},{"id":3,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png"}]}]}'
         headers: []
         description: '0'
       -
@@ -88,7 +88,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null}}'
+        content: '{"data":{"id":1,"seller_id":1,"verified_by":1,"category_id":1,"name":"Bajigur Mantap","description":"Jual bajigur dengan rasa yang sangat mantap","is_verified":1,"is_active":1,"created_at":"2022-08-12T08:00:39.000000Z","updated_at":"2022-08-20T04:59:58.000000Z","distance":null,"images":[{"id":1,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/zS8ichuaWLonzbC8DNWntzk82GNUX7-metaa2VudGFuZy5wbmc=-.png"},{"id":2,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/2ZT2MisQKfv5eythIUBPx4OUABdoGO-metadGVzdHVwc2NhbGUucG5n-.png"},{"id":3,"image_url":"http:\/\/mage8-server.test\/storage\/images\/vendors\/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png"}]}}'
         headers: []
         description: '0'
       -

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
+use Storage;
 
 class VendorImage extends Model implements Sortable
 {
@@ -13,6 +14,14 @@ class VendorImage extends Model implements Sortable
 
     protected $fillable = [
         'vendor_id', 'image_path',
+    ];
+
+    protected $casts = [
+        'vendor_id' => 'integer',
+    ];
+
+    protected $appends = [
+        'image_url',
     ];
 
     public function buildSortQuery()
@@ -23,5 +32,10 @@ class VendorImage extends Model implements Sortable
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return Storage::disk('public')->url($this->image_path);
     }
 }
