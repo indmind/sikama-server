@@ -113,6 +113,9 @@
                                                     <li class="tocify-item level-2" data-unique="vendor-for-client-GETapi-v1-vendors-nearest">
                         <a href="#vendor-for-client-GETapi-v1-vendors-nearest">Get nearest vendors</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="vendor-for-client-GETapi-v1-vendors--vendor_id-">
+                        <a href="#vendor-for-client-GETapi-v1-vendors--vendor_id-">Get vendor detail</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -204,11 +207,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 106,
-        &quot;name&quot;: &quot;Galang Iswahyudi&quot;,
-        &quot;email&quot;: &quot;dagel.adriansyah@example.net&quot;,
+        &quot;id&quot;: 116,
+        &quot;name&quot;: &quot;Kunthara Ibrani Siregar M.Kom.&quot;,
+        &quot;email&quot;: &quot;ade.thamrin@example.com&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;0852 6096 644&quot;,
+        &quot;phone&quot;: &quot;0881 260 871&quot;,
         &quot;is_vendor&quot;: false
     },
     &quot;message&quot;: &quot;Login Success&quot;,
@@ -334,11 +337,11 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 107,
-        &quot;name&quot;: &quot;Tania Pratiwi&quot;,
-        &quot;email&quot;: &quot;kamaria35@example.net&quot;,
+        &quot;id&quot;: 117,
+        &quot;name&quot;: &quot;Zaenab Vera Puspasari&quot;,
+        &quot;email&quot;: &quot;ayu.sihombing@example.net&quot;,
         &quot;image_url&quot;: null,
-        &quot;phone&quot;: &quot;(+62) 883 2142 411&quot;,
+        &quot;phone&quot;: &quot;(+62) 529 6916 260&quot;,
         &quot;is_vendor&quot;: false
     }
 }</code>
@@ -541,9 +544,9 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;latitude&quot;: 67.959788,
-        &quot;longitude&quot;: -32.316075,
-        &quot;datetime&quot;: null
+        &quot;latitude&quot;: -75.908247,
+        &quot;longitude&quot;: 171.547537,
+        &quot;datetime&quot;: &quot;2022-08-20T06:03:15.000000Z&quot;
     }
 }</code>
  </pre>
@@ -898,7 +901,165 @@ fetch(url, {
                value="106.8451"
                data-component="query" hidden>
     <br>
-<p>optional The longitude of the user.</p>
+<p>optional The longitude of the user, will use current user location when null.</p>
+            </p>
+                </form>
+
+            <h2 id="vendor-for-client-GETapi-v1-vendors--vendor_id-">Get vendor detail</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get vendor detail by id</p>
+
+<span id="example-requests-GETapi-v1-vendors--vendor_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://mage8-server.test/api/v1/vendors/1?latitude=-6.2145&amp;longitude=106.8451" \
+    --header "Authorization: Bearer {token}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://mage8-server.test/api/v1/vendors/1"
+);
+
+const params = {
+    "latitude": "-6.2145",
+    "longitude": "106.8451",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-vendors--vendor_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;seller_id&quot;: 1,
+        &quot;verified_by&quot;: 1,
+        &quot;category_id&quot;: 1,
+        &quot;name&quot;: &quot;Bajigur Mantap&quot;,
+        &quot;description&quot;: &quot;Jual bajigur dengan rasa yang sangat mantap&quot;,
+        &quot;is_verified&quot;: 1,
+        &quot;is_active&quot;: 1,
+        &quot;created_at&quot;: &quot;2022-08-12T08:00:39.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-08-20T04:59:58.000000Z&quot;,
+        &quot;distance&quot;: null
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (4004, called with invalid vendor id):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Vendor not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-vendors--vendor_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-vendors--vendor_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-vendors--vendor_id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-vendors--vendor_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-vendors--vendor_id-"></code></pre>
+</span>
+<form id="form-GETapi-v1-vendors--vendor_id-" data-method="GET"
+      data-path="api/v1/vendors/{vendor_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {token}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-vendors--vendor_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-vendors--vendor_id-"
+                    onclick="tryItOut('GETapi-v1-vendors--vendor_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-vendors--vendor_id-"
+                    onclick="cancelTryOut('GETapi-v1-vendors--vendor_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-vendors--vendor_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/vendors/{vendor_id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1-vendors--vendor_id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1-vendors--vendor_id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>vendor_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="vendor_id"
+               data-endpoint="GETapi-v1-vendors--vendor_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The id of the vendor.</p>
+            </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>latitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="latitude"
+               data-endpoint="GETapi-v1-vendors--vendor_id-"
+               value="-6.2145"
+               data-component="query" hidden>
+    <br>
+<p>optional The latitude of the user, will use current user location when null.</p>
+            </p>
+                    <p>
+                <b><code>longitude</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="longitude"
+               data-endpoint="GETapi-v1-vendors--vendor_id-"
+               value="106.8451"
+               data-component="query" hidden>
+    <br>
+<p>optional The longitude of the user, will use current user location when null.</p>
             </p>
                 </form>
 

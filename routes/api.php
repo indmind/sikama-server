@@ -34,5 +34,6 @@ Route::group(['prefix' => '/v1'], function () {
 
     Route::group(['prefix' => '/vendors', 'middleware' => 'auth:sanctum'], function () {
         Route::get('/nearest', [VendorController::class, 'nearest']);
+        Route::get('/{vendor}', [VendorController::class, 'show']);
     });
 });

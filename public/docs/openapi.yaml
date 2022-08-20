@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 106
-                    name: 'Galang Iswahyudi'
-                    email: dagel.adriansyah@example.net
+                    id: 116
+                    name: 'Kunthara Ibrani Siregar M.Kom.'
+                    email: ade.thamrin@example.com
                     image_url: null
-                    phone: '0852 6096 644'
+                    phone: '0881 260 871'
                     is_vendor: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 106
-                      name: 'Galang Iswahyudi'
-                      email: dagel.adriansyah@example.net
+                      id: 116
+                      name: 'Kunthara Ibrani Siregar M.Kom.'
+                      email: ade.thamrin@example.com
                       image_url: null
-                      phone: '0852 6096 644'
+                      phone: '0881 260 871'
                       is_vendor: false
                   message:
                     type: string
@@ -119,21 +119,21 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 107
-                    name: 'Tania Pratiwi'
-                    email: kamaria35@example.net
+                    id: 117
+                    name: 'Zaenab Vera Puspasari'
+                    email: ayu.sihombing@example.net
                     image_url: null
-                    phone: '(+62) 883 2142 411'
+                    phone: '(+62) 529 6916 260'
                     is_vendor: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 107
-                      name: 'Tania Pratiwi'
-                      email: kamaria35@example.net
+                      id: 117
+                      name: 'Zaenab Vera Puspasari'
+                      email: ayu.sihombing@example.net
                       image_url: null
-                      phone: '(+62) 883 2142 411'
+                      phone: '(+62) 529 6916 260'
                       is_vendor: false
       tags:
         - Authentication
@@ -213,16 +213,16 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: 67.959788
-                    longitude: -32.316075
-                    datetime: null
+                    latitude: -75.908247
+                    longitude: 171.547537
+                    datetime: '2022-08-20T06:03:15.000000Z'
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: 67.959788
-                      longitude: -32.316075
-                      datetime: null
+                      latitude: -75.908247
+                      longitude: 171.547537
+                      datetime: '2022-08-20T06:03:15.000000Z'
       tags:
         - 'Position Provider'
     parameters:
@@ -308,12 +308,12 @@ paths:
         -
           in: query
           name: longitude
-          description: 'optional The longitude of the user.'
+          description: 'optional The longitude of the user, will use current user location when null.'
           example: '106.8451'
           required: false
           schema:
             type: string
-            description: 'optional The longitude of the user.'
+            description: 'optional The longitude of the user, will use current user location when null.'
             example: '106.8451'
         -
           in: header
@@ -385,6 +385,110 @@ paths:
                     example: 'Please provide latitude and longitude'
       tags:
         - 'Vendor for Client'
+  '/api/v1/vendors/{vendor_id}':
+    get:
+      summary: 'Get vendor detail'
+      description: 'Get vendor detail by id'
+      parameters:
+        -
+          in: query
+          name: latitude
+          description: 'optional The latitude of the user, will use current user location when null.'
+          example: '-6.2145'
+          required: false
+          schema:
+            type: string
+            description: 'optional The latitude of the user, will use current user location when null.'
+            example: '-6.2145'
+        -
+          in: query
+          name: longitude
+          description: 'optional The longitude of the user, will use current user location when null.'
+          example: '106.8451'
+          required: false
+          schema:
+            type: string
+            description: 'optional The longitude of the user, will use current user location when null.'
+            example: '106.8451'
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    seller_id: 1
+                    verified_by: 1
+                    category_id: 1
+                    name: 'Bajigur Mantap'
+                    description: 'Jual bajigur dengan rasa yang sangat mantap'
+                    is_verified: 1
+                    is_active: 1
+                    created_at: '2022-08-12T08:00:39.000000Z'
+                    updated_at: '2022-08-20T04:59:58.000000Z'
+                    distance: null
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      seller_id: 1
+                      verified_by: 1
+                      category_id: 1
+                      name: 'Bajigur Mantap'
+                      description: 'Jual bajigur dengan rasa yang sangat mantap'
+                      is_verified: 1
+                      is_active: 1
+                      created_at: '2022-08-12T08:00:39.000000Z'
+                      updated_at: '2022-08-20T04:59:58.000000Z'
+                      distance: null
+        4004:
+          description: 'called with invalid vendor id'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Vendor not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Vendor not found'
+      tags:
+        - 'Vendor for Client'
+    parameters:
+      -
+        in: path
+        name: vendor_id
+        description: 'The id of the vendor.'
+        example: '1'
+        required: true
+        schema:
+          type: string
 tags:
   -
     name: Authentication

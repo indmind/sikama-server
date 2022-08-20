@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "efa8148a-7b0d-4568-b2d7-21b323512872",
+        "_postman_id": "c13d4cd8-149b-4d6e-b9f1-33edf76926c5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":106,\"name\":\"Galang Iswahyudi\",\"email\":\"dagel.adriansyah@example.net\",\"image_url\":null,\"phone\":\"0852 6096 644\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":116,\"name\":\"Kunthara Ibrani Siregar M.Kom.\",\"email\":\"ade.thamrin@example.com\",\"image_url\":null,\"phone\":\"0881 260 871\",\"is_vendor\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":107,\"name\":\"Tania Pratiwi\",\"email\":\"kamaria35@example.net\",\"image_url\":null,\"phone\":\"(+62) 883 2142 411\",\"is_vendor\":false}}",
+                            "body": "{\"data\":{\"id\":117,\"name\":\"Zaenab Vera Puspasari\",\"email\":\"ayu.sihombing@example.net\",\"image_url\":null,\"phone\":\"(+62) 529 6916 260\",\"is_vendor\":false}}",
                             "name": "0"
                         }
                     ]
@@ -162,7 +162,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":67.959788,\"longitude\":-32.316075,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":-75.908247,\"longitude\":171.547537,\"datetime\":\"2022-08-20T06:03:15.000000Z\"}}",
                             "name": "0"
                         }
                     ]
@@ -236,7 +236,7 @@
                                 {
                                     "key": "longitude",
                                     "value": "106.8451",
-                                    "description": "optional The longitude of the user.",
+                                    "description": "optional The longitude of the user, will use current user location when null.",
                                     "disabled": false
                                 }
                             ],
@@ -268,6 +268,65 @@
                             "code": 400,
                             "body": "{\n     \"message\": \"Please provide latitude and longitude\"\n}",
                             "name": "called with empty latitude and longitude and no user position"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get vendor detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vendors\/:vendor_id",
+                            "query": [
+                                {
+                                    "key": "latitude",
+                                    "value": "-6.2145",
+                                    "description": "optional The latitude of the user, will use current user location when null.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "106.8451",
+                                    "description": "optional The longitude of the user, will use current user location when null.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/vendors\/:vendor_id?latitude=-6.2145&longitude=106.8451",
+                            "variable": [
+                                {
+                                    "id": "vendor_id",
+                                    "key": "vendor_id",
+                                    "value": "1",
+                                    "description": "The id of the vendor."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get vendor detail by id"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"seller_id\":1,\"verified_by\":1,\"category_id\":1,\"name\":\"Bajigur Mantap\",\"description\":\"Jual bajigur dengan rasa yang sangat mantap\",\"is_verified\":1,\"is_active\":1,\"created_at\":\"2022-08-12T08:00:39.000000Z\",\"updated_at\":\"2022-08-20T04:59:58.000000Z\",\"distance\":null}}",
+                            "name": "0"
+                        },
+                        {
+                            "header": [],
+                            "code": 4004,
+                            "body": "{\n     \"message\": \"Vendor not found\"\n}",
+                            "name": "called with invalid vendor id"
                         }
                     ]
                 }
