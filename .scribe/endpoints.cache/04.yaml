@@ -51,7 +51,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/vendors/{vendor_id}'
+    uri: 'api/v1/vendors/{vendor}'
     metadata:
       title: 'Get vendor detail'
       description: 'Get vendor detail by id'
@@ -62,6 +62,13 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
+      vendor:
+        name: vendor
+        description: 'The vendor.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
       vendor_id:
         name: vendor_id
         description: 'The id of the vendor.'
@@ -92,11 +99,56 @@ endpoints:
         headers: []
         description: '0'
       -
-        status: 4004
+        status: 404
         content: |-
           {
                "message": "Vendor not found"
           }
         headers: []
-        description: '4004, called with invalid vendor id'
+        description: '404, called with invalid vendor id'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/vendors/{vendor}/products'
+    metadata:
+      title: 'Get vendor products'
+      description: "Get vendor's products"
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {token}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      vendor:
+        name: vendor
+        description: 'The vendor.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      vendor_id:
+        name: vendor_id
+        description: 'The id of the vendor.'
+        required: true
+        example: '1'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":4,"vendor_id":2,"name":"totam aperiam","price":9973,"is_available":true,"image_url":"http:\/\/mage8-server.test\/storage\/"},{"id":5,"vendor_id":1,"name":"nihil a","price":1846,"is_available":true,"image_url":"http:\/\/mage8-server.test\/storage\/"}]}'
+        headers: []
+        description: '0'
+      -
+        status: 404
+        content: |-
+          {
+               "message": "Vendor not found"
+          }
+        headers: []
+        description: '404, called with invalid vendor id'
     responseFields: []

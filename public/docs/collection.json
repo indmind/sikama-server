@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Mage 8",
-        "_postman_id": "cf7adac1-02ff-4f7f-8e84-3bc455a19cfc",
+        "_postman_id": "36fe5301-e0a7-4dcf-9d15-0450b94703ec",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -52,7 +52,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":141,\"name\":\"Devi Rahayu\",\"email\":\"adika.gunawan@example.com\",\"image_url\":null,\"phone\":\"0450 3846 070\",\"is_seller\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
+                            "body": "{\"data\":{\"id\":149,\"name\":\"Garang Saptono S.Farm\",\"email\":\"ikhsan04@example.org\",\"image_url\":null,\"phone\":\"0914 5038 0241\",\"is_seller\":false},\"message\":\"Login Success\",\"token\":\"bearer_token_for_authentication\"}",
                             "name": "0"
                         }
                     ]
@@ -84,7 +84,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":142,\"name\":\"Baktiono Hardi Permadi M.TI.\",\"email\":\"yuliarti.hasan@example.net\",\"image_url\":null,\"phone\":\"0374 4578 4302\",\"is_seller\":false}}",
+                            "body": "{\"data\":{\"id\":150,\"name\":\"Indah Safitri\",\"email\":\"humaira.prastuti@example.net\",\"image_url\":null,\"phone\":\"0474 3846 2530\",\"is_seller\":false}}",
                             "name": "0"
                         }
                     ]
@@ -157,7 +157,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":17,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-21T04:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":2}}",
+                            "body": "{\"data\":{\"id\":29,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-27T00:24:22.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-26T05:24:22.000000Z\",\"queue_number\":2}}",
                             "name": "0"
                         },
                         {
@@ -207,7 +207,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":15,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-21T04:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":2},{\"id\":16,\"customer_id\":120,\"vendor_id\":1,\"schedule_time\":\"2022-08-20T23:50:26.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-20T07:50:26.000000Z\",\"queue_number\":1}]}",
+                            "body": "{\"data\":[{\"id\":27,\"customer_id\":120,\"vendor_id\":2,\"schedule_time\":\"2022-08-26T21:24:22.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-26T05:24:22.000000Z\",\"queue_number\":2},{\"id\":28,\"customer_id\":120,\"vendor_id\":1,\"schedule_time\":\"2022-08-26T19:24:22.000000Z\",\"status\":\"active\",\"created_at\":\"2022-08-26T05:24:22.000000Z\",\"queue_number\":1}]}",
                             "name": "0"
                         }
                     ]
@@ -305,7 +305,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"latitude\":46.27598,\"longitude\":97.415746,\"datetime\":null}}",
+                            "body": "{\"data\":{\"latitude\":-6.856985,\"longitude\":171.182817,\"datetime\":null}}",
                             "name": "0"
                         }
                     ]
@@ -419,7 +419,7 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/vendors\/:vendor_id",
+                            "path": "api\/v1\/vendors\/:vendor",
                             "query": [
                                 {
                                     "key": "latitude",
@@ -434,8 +434,14 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/vendors\/:vendor_id?latitude=-6.2145&longitude=106.8451",
+                            "raw": "{{baseUrl}}\/api\/v1\/vendors\/:vendor?latitude=-6.2145&longitude=106.8451",
                             "variable": [
+                                {
+                                    "id": "vendor",
+                                    "key": "vendor",
+                                    "value": "1",
+                                    "description": "The vendor."
+                                },
                                 {
                                     "id": "vendor_id",
                                     "key": "vendor_id",
@@ -467,7 +473,59 @@
                         },
                         {
                             "header": [],
-                            "code": 4004,
+                            "code": 404,
+                            "body": "{\n     \"message\": \"Vendor not found\"\n}",
+                            "name": "called with invalid vendor id"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get vendor products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/vendors\/:vendor\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/vendors\/:vendor\/products",
+                            "variable": [
+                                {
+                                    "id": "vendor",
+                                    "key": "vendor",
+                                    "value": "1",
+                                    "description": "The vendor."
+                                },
+                                {
+                                    "id": "vendor_id",
+                                    "key": "vendor_id",
+                                    "value": "1",
+                                    "description": "The id of the vendor."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Get vendor's products"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":4,\"vendor_id\":2,\"name\":\"totam aperiam\",\"price\":9973,\"is_available\":true,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/\"},{\"id\":5,\"vendor_id\":1,\"name\":\"nihil a\",\"price\":1846,\"is_available\":true,\"image_url\":\"http:\\\/\\\/mage8-server.test\\\/storage\\\/\"}]}",
+                            "name": "0"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
                             "body": "{\n     \"message\": \"Vendor not found\"\n}",
                             "name": "called with invalid vendor id"
                         }

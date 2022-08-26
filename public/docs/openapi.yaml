@@ -35,11 +35,11 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 141
-                    name: 'Devi Rahayu'
-                    email: adika.gunawan@example.com
+                    id: 149
+                    name: 'Garang Saptono S.Farm'
+                    email: ikhsan04@example.org
                     image_url: null
-                    phone: '0450 3846 070'
+                    phone: '0914 5038 0241'
                     is_seller: false
                   message: 'Login Success'
                   token: bearer_token_for_authentication
@@ -47,11 +47,11 @@ paths:
                   data:
                     type: object
                     example:
-                      id: 141
-                      name: 'Devi Rahayu'
-                      email: adika.gunawan@example.com
+                      id: 149
+                      name: 'Garang Saptono S.Farm'
+                      email: ikhsan04@example.org
                       image_url: null
-                      phone: '0450 3846 070'
+                      phone: '0914 5038 0241'
                       is_seller: false
                   message:
                     type: string
@@ -119,21 +119,21 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 142
-                    name: 'Baktiono Hardi Permadi M.TI.'
-                    email: yuliarti.hasan@example.net
+                    id: 150
+                    name: 'Indah Safitri'
+                    email: humaira.prastuti@example.net
                     image_url: null
-                    phone: '0374 4578 4302'
+                    phone: '0474 3846 2530'
                     is_seller: false
                 properties:
                   data:
                     type: object
                     example:
-                      id: 142
-                      name: 'Baktiono Hardi Permadi M.TI.'
-                      email: yuliarti.hasan@example.net
+                      id: 150
+                      name: 'Indah Safitri'
+                      email: humaira.prastuti@example.net
                       image_url: null
-                      phone: '0374 4578 4302'
+                      phone: '0474 3846 2530'
                       is_seller: false
       tags:
         - Authentication
@@ -213,23 +213,23 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 17
+                    id: 29
                     customer_id: 120
                     vendor_id: 2
-                    schedule_time: '2022-08-21T04:50:26.000000Z'
+                    schedule_time: '2022-08-27T00:24:22.000000Z'
                     status: active
-                    created_at: '2022-08-20T07:50:26.000000Z'
+                    created_at: '2022-08-26T05:24:22.000000Z'
                     queue_number: 2
                 properties:
                   data:
                     type: object
                     example:
-                      id: 17
+                      id: 29
                       customer_id: 120
                       vendor_id: 2
-                      schedule_time: '2022-08-21T04:50:26.000000Z'
+                      schedule_time: '2022-08-27T00:24:22.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:50:26.000000Z'
+                      created_at: '2022-08-26T05:24:22.000000Z'
                       queue_number: 2
         404:
           description: 'Vendor not found'
@@ -329,40 +329,40 @@ paths:
                 example:
                   data:
                     -
-                      id: 15
+                      id: 27
                       customer_id: 120
                       vendor_id: 2
-                      schedule_time: '2022-08-21T04:50:26.000000Z'
+                      schedule_time: '2022-08-26T21:24:22.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:50:26.000000Z'
+                      created_at: '2022-08-26T05:24:22.000000Z'
                       queue_number: 2
                     -
-                      id: 16
+                      id: 28
                       customer_id: 120
                       vendor_id: 1
-                      schedule_time: '2022-08-20T23:50:26.000000Z'
+                      schedule_time: '2022-08-26T19:24:22.000000Z'
                       status: active
-                      created_at: '2022-08-20T07:50:26.000000Z'
+                      created_at: '2022-08-26T05:24:22.000000Z'
                       queue_number: 1
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 15
+                        id: 27
                         customer_id: 120
                         vendor_id: 2
-                        schedule_time: '2022-08-21T04:50:26.000000Z'
+                        schedule_time: '2022-08-26T21:24:22.000000Z'
                         status: active
-                        created_at: '2022-08-20T07:50:26.000000Z'
+                        created_at: '2022-08-26T05:24:22.000000Z'
                         queue_number: 2
                       -
-                        id: 16
+                        id: 28
                         customer_id: 120
                         vendor_id: 1
-                        schedule_time: '2022-08-20T23:50:26.000000Z'
+                        schedule_time: '2022-08-26T19:24:22.000000Z'
                         status: active
-                        created_at: '2022-08-20T07:50:26.000000Z'
+                        created_at: '2022-08-26T05:24:22.000000Z'
                         queue_number: 1
                     items:
                       type: object
@@ -477,15 +477,15 @@ paths:
                 type: object
                 example:
                   data:
-                    latitude: 46.27598
-                    longitude: 97.415746
+                    latitude: -6.856985
+                    longitude: 171.182817
                     datetime: null
                 properties:
                   data:
                     type: object
                     example:
-                      latitude: 46.27598
-                      longitude: 97.415746
+                      latitude: -6.856985
+                      longitude: 171.182817
                       datetime: null
       tags:
         - 'Position Provider'
@@ -717,7 +717,7 @@ paths:
                     example: 'Please provide latitude and longitude'
       tags:
         - 'Vendor for Client'
-  '/api/v1/vendors/{vendor_id}':
+  '/api/v1/vendors/{vendor}':
     get:
       summary: 'Get vendor detail'
       description: 'Get vendor detail by id'
@@ -818,7 +818,7 @@ paths:
                         -
                           id: 3
                           image_url: 'http://mage8-server.test/storage/images/vendors/R3hup7MCyhewikCr5qJqFNmHeLi5Vd-metacmFiYml0IGd1eSBpbiAxNiBiaXQucG5n-.png'
-        4004:
+        404:
           description: 'called with invalid vendor id'
           content:
             application/json:
@@ -833,6 +833,114 @@ paths:
       tags:
         - 'Vendor for Client'
     parameters:
+      -
+        in: path
+        name: vendor
+        description: 'The vendor.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: vendor_id
+        description: 'The id of the vendor.'
+        example: '1'
+        required: true
+        schema:
+          type: string
+  '/api/v1/vendors/{vendor}/products':
+    get:
+      summary: 'Get vendor products'
+      description: "Get vendor's products"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {token}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '0'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 4
+                      vendor_id: 2
+                      name: 'totam aperiam'
+                      price: 9973
+                      is_available: true
+                      image_url: 'http://mage8-server.test/storage/'
+                    -
+                      id: 5
+                      vendor_id: 1
+                      name: 'nihil a'
+                      price: 1846
+                      is_available: true
+                      image_url: 'http://mage8-server.test/storage/'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        vendor_id: 2
+                        name: 'totam aperiam'
+                        price: 9973
+                        is_available: true
+                        image_url: 'http://mage8-server.test/storage/'
+                      -
+                        id: 5
+                        vendor_id: 1
+                        name: 'nihil a'
+                        price: 1846
+                        is_available: true
+                        image_url: 'http://mage8-server.test/storage/'
+                    items:
+                      type: object
+        404:
+          description: 'called with invalid vendor id'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Vendor not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Vendor not found'
+      tags:
+        - 'Vendor for Client'
+    parameters:
+      -
+        in: path
+        name: vendor
+        description: 'The vendor.'
+        example: 1
+        required: true
+        schema:
+          type: integer
       -
         in: path
         name: vendor_id

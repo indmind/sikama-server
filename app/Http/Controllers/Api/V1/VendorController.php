@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ProductResource;
 use App\Http\Resources\V1\VendorResource;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
@@ -62,12 +63,20 @@ class VendorController extends Controller
      * @apiResource App\Http\Resources\V1\VendorResource
      * @apiResourceModel App\Models\Vendor
      *
-     * @response scenario="called with invalid vendor id" status=4004 {
+     * @response scenario="called with invalid vendor id" status=404 {
      *      "message": "Vendor not found"
      * }
      */
-    public function show(Request $request, Vendor $vendor)
+    public function show(Request $request, $vendor_id)
     {
+        $vendor = Vendor::find($vendor_id);
+
+        if (! $vendor) {
+            return response()->json([
+                'message' => 'Vendor not found',
+            ], 404);
+        }
+
         $user = $request->user();
 
         $latitude = $request->input('latitude', $user->position?->latitude);
@@ -77,5 +86,32 @@ class VendorController extends Controller
         $vendor->distance = $vendor->getDistanceFrom($latitude, $longitude);
 
         return new VendorResource($vendor);
+    }
+
+    /**
+     * Get vendor products
+     *
+     * Get vendor's products
+     *
+     * @urlParam vendor_id required The id of the vendor. Example: 1
+     *
+     * @apiResourceCollection App\Http\Resources\V1\ProductResource
+     * @apiResourceModel App\Models\Product
+     *
+     * @response scenario="called with invalid vendor id" status=404 {
+     *      "message": "Vendor not found"
+     * }
+     */
+    public function products($vendor_id)
+    {
+        $vendor = Vendor::find($vendor_id);
+
+        if (! $vendor) {
+            return response()->json([
+                'message' => 'Vendor not found',
+            ], 404);
+        }
+
+        return ProductResource::collection($vendor->products);
     }
 }
